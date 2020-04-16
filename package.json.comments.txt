@@ -1,0 +1,7 @@
+### Comments of the package.json ###
+
+"scripts": {  // scripts intended to run from the command line
+    "dev": "webpack-dev-server",
+    "build": "webpack", // instead of installing webpack globally, npm finds it within the project folder
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
