@@ -1,4 +1,13 @@
-const path = require('path')    // create abslolute path to the current project folder
+const path = require('path')    // create absolute path to the current project folder
+
+/*
+post-css plugin array
+ */
+const postCSSPlugins = [
+    require('postcss-simple-vars'),
+    require('postcss-nested'),
+    require('autoprefixer')
+]
 
 module.exports = {
     entry: './app/assets/scripts/App.js',
@@ -11,12 +20,19 @@ module.exports = {
     module: {
         rules: [
             /*
-            style-loader: css-style-support for webpack (which only understands js)
-            css-loader: css-import-support for webpack (which only understands js)
+            "style-loader": "^1.0.0",            // css-style-support for webpack (which only understands js)
+            "css-loader": "^3.2.0",              // css-import-support for webpack (which only understands js)
+            "postcss-loader": "^3.0.0",          // post-css support for webpack
              */
             {
-                test: /\.css$/i,        // only if a file ends in ".css"...
-                use: ['style-loader', 'css-loader']     // ...only then use style-loader and also css-loader module.
+                test: /\.css$/i,        // only if a file ends in ".css" (regex term)...
+                // ...only then use:
+                // style-loader module
+                // css-loader module
+                //      -> 'css-loader' vs 'css-loader?url=false'
+                //      -> disable url support of post-css to manage image files manually.
+                // post-css-loader module with the plugins (listed in postCSSPlugins const)
+                use: ['style-loader', 'css-loader?url=false', {loader: 'postcss-loader', options: {plugins: postCSSPlugins}}]
             }
         ]
     }
