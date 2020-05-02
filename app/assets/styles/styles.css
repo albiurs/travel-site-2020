@@ -1,12 +1,13 @@
-/*@import "normalize.css";*/
+@import "normalize.css";
+
 /* variables and mixins before other css imports */
-/*
 @import "base/_variables";
-@import "base/_mixins";
+/*@import "base/_mixins";*/
+
 @import "base/_global";
 @import "modules/_large-hero";
 @import "modules/_btn";
-@import "modules/_wrapper";
+/*@import "modules/_wrapper";
 @import "modules/_page-section";
 @import "modules/_headline";
 @import "modules/_row";
@@ -17,16 +18,4 @@
 @import "modules/_sprite";
 @import "modules/_site-footer";
 @import "modules/_site-header";
-@import "modules/_primary-nav";
-*/
-body {
-    color: green;
-}
-
-$mainBlue: #2f5572;
-
-.large-hero {
-    h2 {
-        color: $mainBlue;
-    }
-}
+@import "modules/_primary-nav";*/

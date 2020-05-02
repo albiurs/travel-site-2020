@@ -1,0 +1,75 @@
+/*
+BEM Block
+large hero
+ */
+.large-hero {
+	border-bottom: 10px solid $mainBlue;
+	/*relative to its normal position*/
+	position: relative;
+
+	&__image {
+		/*default inline*/
+		display: block;
+	}
+
+	&__text-content {
+		/*absolute to its ancestor div (.large-hero)*/
+		position: absolute;
+
+		padding-top: 88px;
+
+		/*center vertically*/
+		top: 50%;
+		transform: translateY(-50%);
+		left: 0;
+
+		/*center text horizontally*/
+		width: 100%;
+		text-align: center;
+
+/*		@mixin atMedium{
+			padding-top: 50px;
+		}*/
+	}
+
+	&__title {
+		font-weight: 300;
+		color: $mainBlue;
+		/*rem: font-size relative to to the page's root <html>-element font size, which is 16px in most cases.*/
+		font-size: 4.8rem;
+		margin: 0;
+
+/*		@mixin atSmall {
+			font-size: 4.8rem;
+		}*/
+	}
+
+	&__subtitle {
+		font-weight: 300;
+		color: $mainBlue;
+		font-size: 2.9rem;
+		margin: 0;
+
+/*		@mixin atSmall {
+			font-size: 2.9rem;
+		}*/
+	}
+
+	&__description {
+		color: #FFF;
+		font-size: 1.875rem;
+		font-weight: 100;
+		/*shadow: offset 2px/2px; blur 0; color black/transparency 10%*/
+		text-shadow: 2px 2px 0 rgba(0, 0, 0, .1);
+		/*limit with of description text to:
+		 max-width: 480px; > convert: 480px/16=30rem)*/
+		max-width: 30rem;
+		/*center description text horizontally*/
+		margin-left: auto;
+		margin-right: auto;
+
+/*		@mixin atSmall {
+			font-size: 1.875rem;
+		}*/
+	}
+}

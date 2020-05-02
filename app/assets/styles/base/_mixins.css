@@ -1,0 +1,29 @@
+/* small media query */
+@define-mixin atSmall {
+	@media (min-width: 530px) {
+		@mixin-content;
+	}
+}
+
+/* medium media query */
+@define-mixin atMedium {
+	@media (min-width: 800px) {
+		@mixin-content;
+	}
+}
+
+/* large media query */
+@define-mixin atLarge {
+	@media (min-width: 1010px) {
+		@mixin-content;
+	}
+}
+
+/* add blank content after to clear floating of the parent elment to float children after */
+@define-mixin clearfix {
+	&::after {
+		content: "";
+		clear: both;
+		display: table;
+	}
+}

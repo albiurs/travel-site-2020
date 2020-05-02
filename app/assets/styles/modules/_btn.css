@@ -1,0 +1,24 @@
+.btn {
+	background-color: $mainBlue;
+	color: #FFF;
+	/*remove underline*/
+	text-decoration: none;
+	/*padding: vertical horizontal;*/
+	padding: .75rem 1.2rem;
+	/*display: inline-block: parent and surrounding elements will be aware of it's vertical padding*/
+	display: inline-block;
+
+	&--orange {
+		background-color: $mainOrange;
+	}
+
+	&--large {
+		font-size: 1.25rem;
+		/*padding: vertical horizontal;*/
+		padding: 1.1rem 1.9rem;
+
+/*		mixin atSmall {
+			font-size: 1.25rem;
+		}*/
+	}
+}
