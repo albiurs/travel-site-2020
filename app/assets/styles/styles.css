@@ -2,7 +2,7 @@
 
 /* variables and mixins before other css imports */
 @import "base/_variables";
-/*@import "base/_mixins";*/
+@import "base/_mixins";
 
 @import "base/_global";
 @import "modules/_large-hero";

@@ -17,8 +17,8 @@
 		/*padding: vertical horizontal;*/
 		padding: 1.1rem 1.9rem;
 
-/*		mixin atSmall {
+		mixin atSmall {
 			font-size: 1.25rem;
-		}*/
+		}
 	}
 }

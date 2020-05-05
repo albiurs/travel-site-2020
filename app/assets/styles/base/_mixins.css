@@ -1,21 +1,25 @@
+/* tiny media */
+/* mobile first standard css for all media without media query */
+/* without mixin definition up to  max-width: 529px */
+
 /* small media query */
 @define-mixin atSmall {
 	@media (min-width: 530px) {
-		@mixin-content;
+		@mixin-content;		/*replaced by target css*/
 	}
 }
 
 /* medium media query */
 @define-mixin atMedium {
 	@media (min-width: 800px) {
-		@mixin-content;
+		@mixin-content;		/*replaced by target css*/
 	}
 }
 
 /* large media query */
 @define-mixin atLarge {
-	@media (min-width: 1010px) {
-		@mixin-content;
+	@media (min-width: 1200px) {
+		@mixin-content;		/*replaced by target css*/
 	}
 }
 
