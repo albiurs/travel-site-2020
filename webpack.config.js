@@ -28,8 +28,21 @@ module.exports = {
         filename: 'bundled.js',                 // property: define name of bundled js file
         path: path.resolve(__dirname, 'app')    // property: define abs. path for bundled js file. path.resolve(__dirname=from/current/dir/, 'to/relative/folder')
     },
+    /*
+    setup dev server object @localhost:3000
+     */
+    devServer: {
+        before: function(app, server) {
+            server._watch('./app/**/*.html')    // watch for file changes
+        },
+        contentBase: path.join(__dirname, 'app'),   // property: abs. path to point the dev server
+        hot: true,                                  // property: hot module replacement: inject css into javascript into the browsers memory on the fly without the need of reloading the page.
+        port: 3000,                                 // property: web-server port
+        host: '0.0.0.0'
+    },
     mode: 'development', // current project mode (development or production)
-    watch: true,    // watch the entry file declared above and automatically rebuild on change (App.js and also all its import files)
+    watch: true,    // Only needed for webpack(npm run build), but not for webpack-dev-server(npm run dev) with devServer.
+                    // Watch the entry file declared above and automatically rebuild on change (App.js and also all its import files)
     module: {
         rules: [
             /*
