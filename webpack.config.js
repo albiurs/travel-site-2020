@@ -1,8 +1,7 @@
+// == constants ==
 const path = require('path')    // import/require-in the node.js 'path' module/package in ./node_modules/@types/node/path.d.ts, which is part of the node library
 
-/*
-post-css plugin array
- */
+//post-css plugin array
 const postCSSPlugins = [
     require('postcss-import'),
     require('postcss-mixins'),
@@ -12,6 +11,7 @@ const postCSSPlugins = [
 ]
 
 
+// == modules ==
 /**
  * module.exports = {javascript object}
  * set up webpack:
@@ -30,7 +30,7 @@ module.exports = {
         path: path.resolve(__dirname, 'app')    // property: define abs. path for bundled js file. path.resolve(__dirname=from/current/dir/, 'to/relative/folder')
     },
     /*
-    setup dev server object @localhost:3000
+    setup dev server object @localhost:portNumber
      */
     devServer: {
         before: function(app, server) {
@@ -39,7 +39,7 @@ module.exports = {
         contentBase: path.join(__dirname, 'app'),   // property: abs. path to point the dev server
         hot: true,                                  // property: hot module replacement: inject css into javascript into the browsers memory on the fly without the need of reloading the page.
         port: 3000,                                 // property: web-server port
-        host: '0.0.0.0'
+        host: '0.0.0.0'                             // property: make dev server available for all hosts in the local network
     },
     mode: 'development', // current project mode (development or production)
     watch: true,    // Only needed for webpack(npm run build), but not for webpack-dev-server(npm run dev) with devServer.

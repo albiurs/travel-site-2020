@@ -3,9 +3,9 @@
 {
   "name": "travel-site",
   "version": "1.0.0",
-  "scripts": {  // scripts intended to run from the command line
-    "dev": "webpack-dev-server",
-    "build": "webpack", // instead of installing webpack globally, npm finds it within the project folder
+  "scripts": {                      // scripts intended to run from the command line
+    "dev": "webpack-dev-server",    // "npm run dev":   trigger webpack-dev-server
+    "build": "webpack",             // "npm run build": instead of installing webpack globally, npm finds it within the project folder
     "test": "echo \"Error: no test specified\" && exit 1"
   },
      "dependencies": {
@@ -31,13 +31,13 @@
        "postcss-hexrgba": "^2.0.0",
        "postcss-import": "^12.0.1",         // PostCSS support to import of modular partial css files from a sub-dir into styles.css
        "postcss-loader": "^3.0.0",          // PostCSS support for webpack
-       "postcss-mixins": "^6.2.2",
+       "postcss-mixins": "^6.2.2",          // PostCSS mixin plugin for auto code replacement (e.g. media queries)
        "postcss-nested": "^4.1.2",          // PostCSS plugin for nested css code support
        "postcss-simple-vars": "^5.0.2",     // PostCSS plugin for css-variables
        "style-loader": "^1.0.0",            // css-style support for webpack (which only understands js)
-       "webpack": "^4.41.0",
-       "webpack-cli": "^3.3.9",
-       "webpack-dev-server": "^3.9.0"
+       "webpack": "^4.41.0",                // webpack core
+       "webpack-cli": "^3.3.9",             // webpack client
+       "webpack-dev-server": "^3.9.0"       // webpack development server
      }
    }
 

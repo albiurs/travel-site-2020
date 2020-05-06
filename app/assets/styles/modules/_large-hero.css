@@ -21,9 +21,9 @@ large hero
 		/*center vertically*/
 		top: 50%;
 		transform: translateY(-50%);
-		left: 0;
 
 		/*center text horizontally*/
+		left: 0;
 		width: 100%;
 		text-align: center;
 
@@ -67,9 +67,9 @@ large hero
 		color: #FFF;
 		font-size: 1.875rem;
 		font-weight: 100;
-		/*shadow: offset 2px/2px; blur 0; color black/transparency 10%*/
+		/*shadow: offset 2px/2px; blur 0; color black/opacity 10%*/
 		text-shadow: 2px 2px 0 rgba(0, 0, 0, .1);
-		/*limit with of description text to:
+		/*limit width of description text to:
 		 max-width: 480px; > convert: 480px/16=30rem)*/
 		max-width: 30rem;
 		/*center description text horizontally*/
