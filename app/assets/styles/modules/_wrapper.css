@@ -1,9 +1,15 @@
+/*
+Wrapper-Div
+Standardized element div wrapper
+ */
 .wrapper {
 
 	overflow: hidden; /* hide overflow of negative row right-padding */
 	padding-left: 18px;
 	padding-right: 18px;
 	max-width: 1236px; /* =1200px + 2*18px of padding */
+
+	/*center horizontally*/
 	margin-left: auto;
 	margin-right: auto;
 
@@ -44,5 +50,4 @@
 			margin-bottom: 3.875rem;
 		}
 	}
-
 }

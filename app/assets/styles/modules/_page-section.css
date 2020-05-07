@@ -1,3 +1,7 @@
+/*
+Page Section
+Standardized styles globally applied to all sections of the page.
+ */
 .page-section {
 	padding: 1.2rem 0;
 
@@ -21,6 +25,9 @@
 		}
 	}
 
+	/*
+	Blue Section
+	 */
 	&--blue {
 		background-color: $mainBlue;
 		color: #FFF;
