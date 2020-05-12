@@ -5,7 +5,7 @@ Standardized element div-wrapper
  */
 .wrapper {
 
-	overflow: hidden; 		/* hide overflow of negative row right-padding */
+	overflow: hidden; 		/* hide overflow of negative row right margin */
 	padding-left: 18px;		/* white space from the left and write edge of the screen */
 	padding-right: 18px;	/* white space from the left and write edge of the screen */
 	max-width: 1236px; 		/* =1200px + 2*18px of padding */

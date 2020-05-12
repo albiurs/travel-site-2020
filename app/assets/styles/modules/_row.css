@@ -1,11 +1,22 @@
+/*
+Row BEM Block
+Row layout is a 12 column grid.
+*/
+
 .row {
 
-	@mixin clearfix;
+	/* .row::after */
+	@mixin clearfix;	/*clear floating*/
 
 	&--t-padding {
 		padding-top: 80px;
 	}
 
+	/*
+	.row--gutters
+	Remove right padding of the last div by adding a negative margin to the parent div.
+	...see _wrapper > overflow: hidden;
+	*/
 	&--gutters {
 		margin-right: -65px;
 	}
@@ -18,7 +29,11 @@
 		margin-right: -45px;
 	}
 
-	/* direct children that are div's */
+	/*
+	.row--gutters > div
+	Add gutters between the columns.
+	">" = select all direct children using a "div" tag.
+	*/
 	&--gutters > div {
 		padding-right: 65px;
 	}
@@ -41,6 +56,10 @@
 			margin-bottom: 0;
 		}
 
+		/*
+		.row__medium-4
+		4/12 width column
+		*/
 		&__medium-4 {
 			float: left;
 			width: 33.33%;
@@ -55,6 +74,10 @@
 			width: 50%;
 		}
 
+		/*
+		.row__medium-8
+		8/12 width column
+		*/
 		&__medium-8 {
 			float: left;
 			width: 66.66%;
