@@ -3,8 +3,10 @@ Page Section
 Standardized styles globally applied to all sections of the page.
  */
 .page-section {
+	/* top & bottom padding for tiny screens and above (=all) */
 	padding: 1.2rem 0;
 
+	/* media query */
 	@mixin atMedium {
 		padding: 4.5rem 0;
 	}

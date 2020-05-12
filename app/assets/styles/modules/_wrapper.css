@@ -1,18 +1,20 @@
 /*
+BEM-Block
 Wrapper-Div
-Standardized element div wrapper
+Standardized element div-wrapper
  */
 .wrapper {
 
-	overflow: hidden; /* hide overflow of negative row right-padding */
-	padding-left: 18px;
-	padding-right: 18px;
-	max-width: 1236px; /* =1200px + 2*18px of padding */
+	overflow: hidden; 		/* hide overflow of negative row right-padding */
+	padding-left: 18px;		/* white space from the left and write edge of the screen */
+	padding-right: 18px;	/* white space from the left and write edge of the screen */
+	max-width: 1236px; 		/* =1200px + 2*18px of padding */
 
-	/*center horizontally*/
+	/* center content horizontally on the screen */
 	margin-left: auto;
 	margin-right: auto;
 
+	/* .wrapper--no-padding-until-medium */
 	&--no-padding-until-medium {
 		padding-left: 0;
 		padding-right: 0;
@@ -23,6 +25,7 @@ Standardized element div wrapper
 		}
 	}
 
+	/* .wrapper--no-padding-until-large */
 	&--no-padding-until-large {
 		padding-left: 0;
 		padding-right: 0;
@@ -33,16 +36,20 @@ Standardized element div wrapper
 		}
 	}
 
-	/* remove double padding in any wrapper inside a wrapper */
+	/* .wrapper .wrapper */
+	/* remove double padding in nested wrappers (wrapper inside a wrapper) */
 	.wrapper {
 		padding-left: 0;
 		padding-right: 0;
 	}
 
+	/* .wrapper--medium */
+	/* medium width wrapper for "boxed" elements */
 	&--medium {
 		max-width: 976px;
 	}
 
+	/* .wrapper--b-margin */
 	&--b-margin {
 		margin-bottom: 1rem;
 
