@@ -1,11 +1,21 @@
+/*
+Row BEM Block
+Row layout built on a 12 column grid.
+*/
 .row {
 
-	@mixin clearfix;
+	/* .row::after */
+	@mixin clearfix;	/*clear floating*/
 
 	&--t-padding {
 		padding-top: 80px;
 	}
 
+	/*
+	.row--gutters
+	Remove right padding of the last div by adding a negative margin to the parent div.
+	...see _wrapper > overflow: hidden;
+	*/
 	&--gutters {
 		margin-right: -65px;
 	}
@@ -18,7 +28,11 @@
 		margin-right: -45px;
 	}
 
-	/* direct children that are div's */
+	/*
+	.row--gutters > div
+	Add gutters between the columns.
+	">" = select all direct children using a "div" tag.
+	*/
 	&--gutters > div {
 		padding-right: 65px;
 	}
@@ -31,23 +45,29 @@
 		padding-right: 45px;
 	}
 
+	/* add bottom margin for mobile devices (single column) until medium */
 	&__b-margin-until-medium {
 		margin-bottom: 1rem;
 	}
 
 	@mixin atMedium {
 
+		/* reset bottom margin for devices larger then mobile (multi column view) above medium */
 		&__b-margin-until-medium {
 			margin-bottom: 0;
 		}
 
+		/*
+		.row__medium-4
+		4/12 width column
+		*/
 		&__medium-4 {
 			float: left;
 			width: 33.33%;
 		}
 
 		&__medium-4--larger {
-			width: 37%;
+			width: 37%;	/*override the column width to match the layout of the left image in our-beginning section*/
 		}
 
 		&__medium-6 {
@@ -55,13 +75,17 @@
 			width: 50%;
 		}
 
+		/*
+		.row__medium-8
+		8/12 width column
+		*/
 		&__medium-8 {
 			float: left;
 			width: 66.66%;
 		}
 
 		&__medium-8--smaller {
-			width: 63%;
+			width: 63%;	/*override the column width to match the layout of the right text in our-beginning section*/
 		}
 	}
 
@@ -95,7 +119,7 @@
 		}
 	}
 
-	/* begin equal hight rules */
+	/* begin equal height rules */
 	&--equal-hight-at-medium {
 		@mixin atMedium {
 			display: flex;

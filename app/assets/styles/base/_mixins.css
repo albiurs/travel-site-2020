@@ -23,11 +23,16 @@
 	}
 }
 
-/* add blank content after to clear floating of the parent elment to float children after */
+/*
+.class::after > clear floating elements.
+Clear floating of children div/elements if they use "float: left;" property, and therefore are taken out of the
+normal flow of the page. Hence, the parent div/element is not aware of its children, which disrupts the layout.
+Therefore, add a clear-fix ::after the children div/elements to clear floating before closing the parent div/element.
+*/
 @define-mixin clearfix {
 	&::after {
-		content: "";
-		clear: both;
-		display: table;
+		content: "";	/*add empty element*/
+		clear: both;	/*clear floating both, the right and the left element*/
+		display: table;	/*extra browser support*/
 	}
 }

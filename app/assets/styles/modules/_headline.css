@@ -69,6 +69,7 @@ Headlines
 	}
 
 	/* .headline--no-t-margin */
+	/* remove top margin from headline */
 	&--no-t-margin {
 		margin-top: 0;
 	}

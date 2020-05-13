@@ -1,17 +1,29 @@
+/*
+Generic HTML content container
+Contains standard/generic content styles, wrapped within a div-container.
+*/
 .generic-content-container {
 	p {
+		/*font-size: 1rem;	!*default = 1rem*!*/
 		font-weight: 300;
-		line-height: 1.65;
+		line-height: 1.65;	/*no unit required for line-height like px*/
+
 		/* clock-wise margin top-right-bottom-left */
 		margin: 0 0 1.8rem 0;
 
 		@mixin atSmall {
-			font-size: 1.125rem;
+			font-size: 1.125rem;	/*18px/16px=1.125rem*/
 		}
+
+		/* nesting second level instead of "p a {}", see below */
+		/*a {
+			font-weight: 700;
+		}*/
 	}
 
+	/* any link (a-element) within a paragraph (p-element)*/
 	p a {
-		font-weight: 700;
+		font-weight: 700;	/*default/standard font-weight: 400*/
 	}
 
 }
