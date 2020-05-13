@@ -1,8 +1,7 @@
 /*
 Row BEM Block
-Row layout is a 12 column grid.
+Row layout built on a 12 column grid.
 */
-
 .row {
 
 	/* .row::after */
@@ -66,7 +65,7 @@ Row layout is a 12 column grid.
 		}
 
 		&__medium-4--larger {
-			width: 37%;
+			width: 37%;	/*override the column width to match the layout of the left image in our-beginning section*/
 		}
 
 		&__medium-6 {
@@ -84,7 +83,7 @@ Row layout is a 12 column grid.
 		}
 
 		&__medium-8--smaller {
-			width: 63%;
+			width: 63%;	/*override the column width to match the layout of the right text in our-beginning section*/
 		}
 	}
 

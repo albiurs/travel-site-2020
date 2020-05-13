@@ -8,7 +8,7 @@ Standardized element div-wrapper
 	overflow: hidden; 		/* hide overflow of negative row right margin */
 	padding-left: 18px;		/* white space from the left and write edge of the screen */
 	padding-right: 18px;	/* white space from the left and write edge of the screen */
-	max-width: 1236px; 		/* =1200px + 2*18px of padding */
+	max-width: 1236px; 		/* =1200px + 2*18px of padding, which won't apply (_global.css > box-sizing: border-box)*/
 
 	/* center content horizontally on the screen */
 	margin-left: auto;
@@ -54,7 +54,7 @@ Standardized element div-wrapper
 		margin-bottom: 1rem;
 
 		@mixin atSmall {
-			margin-bottom: 3.875rem;
+			margin-bottom: 3.875rem;	/*62px/16px=3.875rem*/
 		}
 	}
 }

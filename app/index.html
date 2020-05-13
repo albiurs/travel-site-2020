@@ -21,19 +21,18 @@
   </header>
 
   <div class="large-hero">
-<!--    <picture>-->
-<!--      <source srcset="pic-large.jpg width-of-pic1, pic-large-hi-dpi.jpg width-of-pic2" media="query-large">-->
-<!--      <source srcset="pic-medium.jpg width-of-pic1, pic-medium-hi-dpi.jpg width-of-pic2" media="query-medium">-->
-<!--      <source srcset="pic-small.jpg width-of-pic1, pic-small-hi-dpi.jpg width-of-pic2" media="query-small">-->
-<!--      <img  srcset="pic-tiny.jpg width-of-pic1, pic-tiny-hi-dpi.jpg width-of-pic2" media="query-max" alt="text" class="class">-->
-<!--    </picture>-->
+    <!--
     <picture>
-      <source srcset="assets/images/hero--large-i.jpg 1920w, assets/images/hero--large-hi-dpi-i.jpg 3840w"
-              media="(min-width: 1380px)">
-      <source srcset="assets/images/hero--medium-i.jpg 1380w, assets/images/hero--medium-hi-dpi-i.jpg 2760w"
-              media="(min-width: 990px)">
-      <source srcset="assets/images/hero--small-i.jpg 990w, assets/images/hero--small-hi-dpi-i.jpg 1980w"
-              media="(min-width: 640px)">
+      <source media="(query-large)" sizes="DPR:1-max-width-if-not-full-width" srcset="pic-large.jpg width-of-pic1, pic-large-hi-dpi.jpg width-of-pic2">
+      <source media="(query-medium)" sizes="DPR:1-max-width-if-not-full-width" srcset="pic-medium.jpg width-of-pic1, pic-medium-hi-dpi.jpg width-of-pic2">
+      <source media="(query-small)" sizes="DPR:1-max-width-if-not-full-width" srcset="pic-small.jpg width-of-pic1, pic-small-hi-dpi.jpg width-of-pic2">
+      <img srcset="pic-tiny.jpg width-of-pic1, pic-tiny-hi-dpi.jpg width-of-pic2" alt="text" class="class">
+    </picture>
+    -->
+    <picture>
+      <source media="(min-width: 1380px)" srcset="assets/images/hero--large-i.jpg 1920w, assets/images/hero--large-hi-dpi-i.jpg 3840w">
+      <source media="(min-width: 990px)" srcset="assets/images/hero--medium-i.jpg 1380w, assets/images/hero--medium-hi-dpi-i.jpg 2760w">
+      <source media="(min-width: 640px)" srcset="assets/images/hero--small-i.jpg 990w, assets/images/hero--small-hi-dpi-i.jpg 1980w">
       <img srcset="assets/images/hero--smaller-i.jpg 640w, assets/images/hero--smaller-hi-dpi-i.jpg 1280w"
            alt="Coastal view of ocean and mountains" class="large-hero__image">
     </picture>
@@ -52,15 +51,32 @@
     <div class="wrapper">
       <h2 class="headline headline--centered headline--light headline--b-margin-small">The first trip we planned <strong>was our own.</strong></h2>
       <h3 class="headline headline--centered headline--orange headline--small headline--narrow headline--light headline--b-margin-large">Ever since, we&rsquo;ve been working to make travel <strong>better for everyone.</strong></h3>
-      <div class="wrapper wrapper--medium">
-        <img src="assets/images/first-trip.jpg" alt="Couple walking down a street.">
+      <div class="wrapper wrapper--medium wrapper--b-margin">
+        <!--
+        <img sizes="(if-DPR:1-min-width: XXXpx) then-YYYpx, else-ZZZvw" srcset="pic-.jpg width-of-pic1, pic-tiny-hi-dpi.jpg width-of-pic2" alt="text" class="class">
+        -->
+        <img sizes="(min-width: 970px) 976px, 100vw" srcset="assets/images/first-trip-low-res-i.jpg 565w, assets/images/first-trip-i.jpg 976w, assets/images/first-trip-hi-dpi-i.jpg 1952w"
+             alt="Couple walking down a street.">
       </div>
 
       <div class="row row--gutters">
-        <div class="row__medium-4">
-          <img src="assets/images/our-start.jpg" alt="Our founder, Jane Doe">
+        <div class="row__medium-4 row__medium-4--larger">
+          <!--
+          <picture>
+            <source media="(query-large)" sizes="DPR:1-max-width-if-not-full-width" srcset="pic-large.jpg width-of-pic1, pic-large-hi-dpi.jpg width-of-pic2">
+            <source media="(query-medium)" sizes="DPR:1-max-width-if-not-full-width" srcset="pic-medium.jpg width-of-pic1, pic-medium-hi-dpi.jpg width-of-pic2">
+            <source media="(query-small)" sizes="DPR:1-max-width-if-not-full-width" srcset="pic-small.jpg width-of-pic1, pic-small-hi-dpi.jpg width-of-pic2">
+            <img srcset="pic-tiny.jpg width-of-pic1, pic-tiny-hi-dpi.jpg width-of-pic2" alt="text" class="class">
+          </picture>
+          -->
+          <picture>
+            <source media ="(min-width: 1020px)" sizes="404px" srcset ="assets/images/our-start-i.jpg 404w, assets/images/our-start-hi-dpi-i.jpg 808w">
+            <source media ="(min-width: 800px)"  sizes="320px" srcset ="assets/images/our-start-portrait-i.jpg 382w, assets/images/our-start-portrait-hi-dpi-i.jpg 764w">
+            <img srcset="assets/images/our-start-landscape-i.jpg 800w, assets/images/our-start-landscape-hi-dpi-i.jpg 1600w"
+                 alt="our founder Jane Doe">
+          </picture>
         </div>
-        <div class="row__medium-8">
+        <div class="row__medium-8 row__medium-8--smaller">
           <h2 class="headline">Here&rsquo;s how we got started&hellip;</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <a href="#">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           <p>Duis aute irure dolor in <strong>reprehenderit in</strong> voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
