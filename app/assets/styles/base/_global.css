@@ -14,6 +14,6 @@ gutter padding won't apply the column with to avoid breaking of boxes if the tot
 	box-sizing: border-box;
 }
 
-/*a {
+a {
 	color: $mainOrange;
-}*/
+}

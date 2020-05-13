@@ -37,6 +37,7 @@ Standardized element div-wrapper
 	}
 
 	/* .wrapper .wrapper */
+	/* nesting second level wrapper instead of ".wrapper .wrapper {}", see below */
 	/* remove double padding in nested wrappers (wrapper inside a wrapper) */
 	.wrapper {
 		padding-left: 0;
@@ -50,6 +51,7 @@ Standardized element div-wrapper
 	}
 
 	/* .wrapper--b-margin */
+	/* wrapper with bottom margin */
 	&--b-margin {
 		margin-bottom: 1rem;
 
@@ -58,3 +60,12 @@ Standardized element div-wrapper
 		}
 	}
 }
+
+
+/* .wrapper .wrapper */
+/* target second level wrapper ".wrapper .wrapper {}", see nested css above */
+/* remove double padding in nested wrappers (wrapper inside a wrapper) */
+/*.wrapper .wrapper {
+	padding-left: 0;
+	padding-right: 0;
+}*/

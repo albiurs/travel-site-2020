@@ -45,12 +45,14 @@ Row layout built on a 12 column grid.
 		padding-right: 45px;
 	}
 
+	/* add bottom margin for mobile devices (single column) until medium */
 	&__b-margin-until-medium {
 		margin-bottom: 1rem;
 	}
 
 	@mixin atMedium {
 
+		/* reset bottom margin for devices larger then mobile (multi column view) above medium */
 		&__b-margin-until-medium {
 			margin-bottom: 0;
 		}
@@ -117,7 +119,7 @@ Row layout built on a 12 column grid.
 		}
 	}
 
-	/* begin equal hight rules */
+	/* begin equal height rules */
 	&--equal-hight-at-medium {
 		@mixin atMedium {
 			display: flex;

@@ -1,6 +1,6 @@
 @import "normalize.css";
 
-/* variables and mixins before other css imports */
+/* variables and mixins must be imported _before_ other css imports */
 @import "base/_variables";
 @import "base/_mixins";
 
@@ -11,8 +11,8 @@
 @import "modules/_page-section";
 @import "modules/_headline";
 @import "modules/_row";
-/*@import "modules/_generic-content-container";
-@import "modules/_section-title";
+@import "modules/_generic-content-container";
+/*@import "modules/_section-title";
 @import "modules/_feature-item";
 @import "modules/_testimonial";
 @import "modules/_sprite";
