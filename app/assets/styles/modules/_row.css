@@ -67,9 +67,13 @@ Row layout built on a 12 column grid.
 		}
 
 		&__medium-4--larger {
-			width: 37%;	/*override the column width to match the layout of the left image in our-beginning section*/
+			width: 37%;	/*override the column width to match the layout of the left image in the our-beginning section*/
 		}
 
+		/*
+		.row__medium-6
+		6/12 width column
+		*/
 		&__medium-6 {
 			float: left;
 			width: 50%;

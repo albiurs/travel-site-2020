@@ -1,22 +1,26 @@
+
 .section-title {
 	font-size: 2.55rem;
 	font-weight: 300;
 	text-align: center;
 
 	@mixin atSmall {
-		font-size: 3.75rem;
+		font-size: 3.75rem;	/*60px/16px=3.75rem*/
 	}
 
+	/* .section-title strong */
 	strong {
 		font-weight: 500;
 	}
 
+	/* .section-title--blue */
 	&--blue {
 		color: $mainBlue;
 	}
 
+	/* .section-title__icon */
 	&__icon {
-		display: block;
+		display: block;		/*transform from inline to block > take the element out of the normal flow*/
 		margin-left: auto;
 		margin-right: auto;
 		margin-bottom: .6rem;
@@ -24,10 +28,10 @@
 		@mixin atSmall {
 				position: relative;
 				top: 8px;
-				margin-right: .5rem;
-				margin-left: 0;
-				margin-bottom: 0rem;
-				display: inline-block;
+				margin-right: .5rem;	/*white space between icon and text on screens larger then tiny*/
+				margin-left: 0;			/*reset*/
+				margin-bottom: 0;		/*reset*/
+				display: inline-block;	/*avoid dropping the following title text to the next line (override display: block)*/
 		}
 	}
 }

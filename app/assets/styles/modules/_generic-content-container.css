@@ -9,7 +9,7 @@ Contains standard/generic content styles, wrapped within a div-container.
 		line-height: 1.65;	/*no unit required for line-height like px*/
 
 		/* clock-wise margin top-right-bottom-left */
-		margin: 0 0 1.8rem 0;
+		margin: 0 0 1.8rem 0;	/*zero-out margins except for the bottom margin*/
 
 		@mixin atSmall {
 			font-size: 1.125rem;	/*18px/16px=1.125rem*/

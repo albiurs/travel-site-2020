@@ -15,7 +15,7 @@ Top Large Hero Section
 
 	/* .large_hero__text-content */
 	&__text-content {
-		position: absolute;	/*absolute to its ancestor div (.large-hero)*/
+		position: absolute;	/*absolute in relation to its ancestor div with position: relative (.large-hero)*/
 		padding-top: 88px;
 
 		/*center vertically*/

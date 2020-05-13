@@ -1,21 +1,29 @@
+/*
+BEM Block
+Feature Item
+*/
 .feature-item {
 	position: relative;
+
+	/* white space below the item */
 	padding-bottom: 2.5rem;
 
 	@mixin atSmall {
 		padding-left: 94px;
 	}
 
+	/* .feature-item__icon */
 	&__icon {
-		display: block;
-		margin: 0 auto;
+		display: block;	/*transform from inline to block > take the element out of the normal flow*/
+		margin: 0 auto;	/*zero-out top and bottom margin; center horizontally (auto)*/
 
 		@mixin atSmall {
-			position: absolute;
+			position: absolute;	/*absolute in relation to its ancestor div with position: relative (.feature-item)*/
 			left: 0;
 		}
 	}
 
+	/* .feature-item__title */
 	&__title {
 		font-size: 1.6rem;
 		font-weight: 300;
@@ -25,7 +33,7 @@
 
 		@mixin atSmall {
 			margin-top: 1em;
-			font-size: 1.875rem;
+			font-size: 1.875rem;	/*30px/16px=1.875rem*/
 			text-align: left;
 		}
 	}
