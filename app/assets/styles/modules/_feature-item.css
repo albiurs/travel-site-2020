@@ -14,10 +14,12 @@ Feature Item
 
 	/* .feature-item__icon */
 	&__icon {
+		/* icon position on top of the text and centered on tiny screens */
 		display: block;	/*transform from inline to block > take the element out of the normal flow*/
 		margin: 0 auto;	/*zero-out top and bottom margin; center horizontally (auto)*/
 
 		@mixin atSmall {
+			/* position icon to the left of the text on screens > small */
 			position: absolute;	/*absolute in relation to its ancestor div with position: relative (.feature-item)*/
 			left: 0;
 		}
@@ -27,14 +29,14 @@ Feature Item
 	&__title {
 		font-size: 1.6rem;
 		font-weight: 300;
-		margin-top: .7em;
+		margin-top: .7em;			/*relative to it's ancestors font size*/
 		margin-bottom: .8rem;
-		text-align: center;
+		text-align: center;			/*center on tiny screens*/
 
 		@mixin atSmall {
-			margin-top: 1em;
+			margin-top: 1em;		/*relative to it's ancestors font size*/
 			font-size: 1.875rem;	/*30px/16px=1.875rem*/
-			text-align: left;
+			text-align: left;		/*left-aligned on > then small screens*/
 		}
 	}
 }
