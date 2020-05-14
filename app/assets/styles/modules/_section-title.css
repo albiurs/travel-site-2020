@@ -1,4 +1,6 @@
-
+/*
+Section Title BEM Block
+*/
 .section-title {
 	font-size: 2.55rem;
 	font-weight: 300;
@@ -27,7 +29,7 @@
 
 		@mixin atSmall {
 				position: relative;
-				top: 8px;
+				top: 8px;				/*push icon down*/
 				margin-right: .5rem;	/*white space between icon and text on screens larger then tiny*/
 				margin-left: 0;			/*reset*/
 				margin-bottom: 0;		/*reset*/

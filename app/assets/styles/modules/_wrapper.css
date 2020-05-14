@@ -16,10 +16,12 @@ Standardized element div-wrapper
 
 	/* .wrapper--no-padding-until-medium */
 	&--no-padding-until-medium {
+		/*remove padding for mobile devices*/
 		padding-left: 0;
 		padding-right: 0;
 
 		@mixin atMedium {
+			/*add padding for medium+ devices*/
 			padding-left: 18px;
 			padding-right: 18px;
 		}
@@ -27,10 +29,12 @@ Standardized element div-wrapper
 
 	/* .wrapper--no-padding-until-large */
 	&--no-padding-until-large {
+		/*remove padding for mobile devices*/
 		padding-left: 0;
 		padding-right: 0;
 
 		@mixin atLarge {
+			/*add padding for large+ devices*/
 			padding-left: 18px;
 			padding-right: 18px;
 		}

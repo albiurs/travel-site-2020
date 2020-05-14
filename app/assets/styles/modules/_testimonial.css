@@ -1,41 +1,62 @@
+/*
+Testimonial BEM block
+*/
 .testimonial {
-	background-color: rgba(255, 255, 255, .8);
-	padding: 0 18px 1px 18px;
-	margin-bottom: 98px;
+	background-color: rgba(255, 255, 255, .8);	/*white background; alpha transparency: opacity=80%*/
+
+	/*Clockwise padding - top: 0; right: 29px*16px=1.8125rem; bottom: 1px; left: 1.8125rem*/
+	/*padding-bottom: 1px -> needed for margin-bottom. If padding-bottom: 0, the margin-bottom will be ignored (no margin)!*/
+	/*Hence, the margin needs some padding to push against!*/
+	padding: 0 18px 1px 18px;	/*small padding for mobile*/
+	margin-bottom: 98px;		/*prevent images from overlapping on mobiles*/
 
 	@mixin atLarge {
-		padding: 0 1.8125rem 1px 1.8125rem;
-		margin-bottom: 0;
+		/*Clockwise padding - top: 0; right: 29px*16px=1.8125rem; bottom: 1px; left: 1.8125rem*/
+		/*padding-bottom: 1px -> needed for margin-bottom. If padding-bottom: 0, the margin-bottom will be ignored (no margin)!*/
+		/*Hence, the margin needs some padding to push against!*/
+		padding: 0 1.8125rem 1px 1.8125rem;	/*larger padding for large+ devices > 29px*16px=1.8125rem*/
+		margin-bottom: 0;					/*remove margin-bottom on large screens*/
 	}
 
+	/* .testimonial--last */
+	/* Last testimonial element in the row */
 	&--last {
-		margin-bottom: 0;
+		margin-bottom: 0;			/*remove bottom margin from the last testimonial block (on mobile)*/
 	}
 
+	/* .testimonial__photo*/
+	/*  (targets the surrounding div, not the image itself!) */
 	&__photo {
-		border-radius: 80px;
-		overflow: hidden;
+		/*circle div shape (illusion of circle photo)*/
+		border-radius: 80px;	/*div border-radius = half of the image size*/
+		overflow: hidden;		/*hide div overflow (=image outside of the rounded corners)*/
+		border: 6px solid rgba(255, 255, 255, .8);	/*white border; alpha transparency: opacity=80%*/
+
+		/*div size = image size*/
 		width: 160px;
 		height: 160px;
-		margin: 0 auto -80px auto;
-		position: relative;
-		top: -80px;
-		border: 6px solid rgba(255, 255, 255, .8);
+
+		/*image position*/
+		position: relative;			/*relative to its normal position*/
+		top: -80px;					/*pull image up for half the with of the image*/
+		margin: 0 auto -80px auto;	/*center; margin-bottom: remove whitespace due to negative top position*/
 	}
 
+	/* .testimonial__title */
 	&__title {
 		color: $mainBlue;
 		text-align: center;
-		font-size: 1.5rem;
+		font-size: 1.5rem;	/*24px/16px=1.5rem*/
 		font-weight: 500;
-		margin: 0;
+		margin: 0;			/*remove spacing*/
 	}
 
+	/* .testimonial__subtitle */
 	&__subtitle {
 		color: $mainOrange;
 		text-align: center;
 		font-weight: 400;
-		font-size: 0.9375rem;
-		margin: 0.25rem 0 1rem 0;
+		font-size: 0.9375rem;		/*15px/16px=0.9375rem*/
+		margin: 0.25rem 0 1rem 0;	/*add top & bottom spacing*/
 	}
 }

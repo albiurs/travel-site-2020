@@ -1,5 +1,5 @@
 /*
-Page Section
+Page Section BEM block
 Standardized styles globally applied to all sections of the page.
  */
 .page-section {
@@ -11,6 +11,7 @@ Standardized styles globally applied to all sections of the page.
 		padding: 4.5rem 0;
 	}
 
+	/* .page-section--no-b-padding-until-medium */
 	&--no-b-padding-until-medium {
 		padding-bottom: 0;
 
@@ -19,6 +20,7 @@ Standardized styles globally applied to all sections of the page.
 		}
 	}
 
+	/* .page-section--no-b-padding-until-large */
 	&--no-b-padding-until-large {
 		padding-bottom: 0;
 
@@ -27,20 +29,20 @@ Standardized styles globally applied to all sections of the page.
 		}
 	}
 
-	/*
-	Blue Section
-	 */
+	/* .page-section--blue */
 	&--blue {
 		background-color: $mainBlue;
 		color: #FFF;
 	}
 
+	/* .page-section--testimonials */
 	&--testimonials {
 		background-color: #e0e6ef;
 
 		@mixin atLarge {
-			background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
-			background-size: cover;
+			/*add background image to large screens*/
+			background: url('assets/images/testimonials-bg.jpg') top center no-repeat;
+			background-size: cover;	/*shrink or stretch the image to cover the containing div*/
 		}
 	}
 }

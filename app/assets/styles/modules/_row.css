@@ -7,47 +7,53 @@ Row layout built on a 12 column grid.
 	/* .row::after */
 	@mixin clearfix;	/*clear floating*/
 
-	&--t-padding {
-		padding-top: 80px;
-	}
-
-	/*
-	.row--gutters
-	Remove right padding of the last div by adding a negative margin to the parent div.
-	...see _wrapper > overflow: hidden;
-	*/
+	/* .row--gutters */
+	/* Parent gutter div class */
+	/* Remove right padding of the last child div by adding a negative margin to the parent div. */
+	/* ...see _wrapper -> overflow: hidden; */
 	&--gutters {
 		margin-right: -65px;
 	}
 
+	/* .row__gutters-large */
 	&--gutters-large {
 		margin-right: -100px;
 	}
 
+	/* .row__gutters-small */
 	&--gutters-small {
 		margin-right: -45px;
 	}
 
-	/*
-	.row--gutters > div
-	Add gutters between the columns.
-	">" = select all direct children using a "div" tag.
-	*/
+	/* .row--gutters > div */
+	/* Add white space between the columns. */
+	/* ">" = select all direct children using a "div" tag. */
 	&--gutters > div {
 		padding-right: 65px;
 	}
 
+	/* .row--gutters-large > div */
+	/* -> features section */
 	&--gutters-large > div {
 		padding-right: 100px;
 	}
 
+	/* .row--gutters-small > div */
+	/* -> testimonial section */
 	&--gutters-small > div {
 		padding-right: 45px;
 	}
 
+	/* .row__b-margin-until-medium */
 	/* add bottom margin for mobile devices (single column) until medium */
 	&__b-margin-until-medium {
 		margin-bottom: 1rem;
+	}
+
+	/* .row--t-padding */
+	/* Add additional white space above testimonial row due to the overlapping images*/
+	&--t-padding {
+		padding-top: 80px;	/*half of the testimonial image height*/
 	}
 
 	@mixin atMedium {
@@ -95,57 +101,71 @@ Row layout built on a 12 column grid.
 
 	@mixin atLarge {
 
+		/* reset bottom margin for devices larger then "atLarge" */
 		&__b-margin-until-large {
 			margin-bottom: 0;
 		}
 
+		/*
+		.row__medium-4
+		4/12 width column
+		*/
 		&__large-4 {
 			float: left;
 			width: 33.33%;
 		}
 
 		&__large-4--larger {
-			width: 37%;
+			width: 37%;	/*override the column width to match the layout of the left image in the our-beginning section*/
 		}
 
+		/*
+		.row__medium-6
+		6/12 width column
+		*/
 		&__large-6 {
 			float: left;
 			width: 50%;
 		}
 
+		/*
+		.row__medium-8
+		8/12 width column
+		*/
 		&__large-8 {
 			float: left;
 			width: 66.66%;
 		}
 
 		&__large-8--smaller {
-			width: 63%;
+			width: 63%;	/*override the column width to match the layout of the right text in our-beginning section*/
 		}
 	}
 
-	/* begin equal height rules */
-	&--equal-hight-at-medium {
+	/* .row--equal-height-at-medium */
+	/* flex-box is used to achieve equal height of testimonial boxes */
+	&--equal-height-at-medium {
 		@mixin atMedium {
-			display: flex;
+			display: flex;	/*parent row div shall using flex-box*/
 		}
 
-		/* direct decendences that are div's */
+		/* .row--equal-height-at-medium > div */
+		/* direct descendents that are div's > targets all columns */
 		& > div {
-			float: none;
-			display: flex;
+			float: none;	/*stop being floated to the left,...*/
+			display: flex;	/*...but using flex-box instead (same as the ancestor)*/
 		}
 	}
 
-	&--equal-hight-at-large {
+	&--equal-height-at-large {
 		@mixin atLarge {
 			display: flex;
 		}
 
-		/* direct decendences that are div's */
+		/* direct descendents that are div's */
 		& > div {
 			float: none;
 			display: flex;
 		}
 	}
-
 }
