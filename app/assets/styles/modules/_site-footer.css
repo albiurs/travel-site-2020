@@ -1,18 +1,28 @@
+/*
+Site Footer BEM Block
+*/
 .site-footer {
 	background-color: $mainBlue;
 	color: #FFF;
-	padding: .5rem 0;
+	padding: .5rem 0;	/*add vertical padding to the div container*/
 	text-align: center;
 
+	/* .site-footer__text */
 	&__text {
+		/*Block element, taking up the full width of the parent div
+		-> drops the button down to the next line on mobile.*/
 		display: block;
+
 		margin-bottom: 1rem;
 		font-weight: 200;
 
 		@mixin atMedium {
+			/*reset to inline.
+			-> Button gets attached to the right of the text.*/
 			display: inline;
+
 			margin-bottom: 0;
-			margin-right: 1.4rem;
+			margin-right: 1.4rem;	/*space between the text and the button*/
 		}
 	}
 }
