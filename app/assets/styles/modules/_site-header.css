@@ -21,17 +21,26 @@ Site Header BEM Block
 
 	/* .site-header__logo */
 	&__logo {
+		background-color: $mainBlue;
+		padding: 13px 29px;
+
+		/*vertical positioning*/
 		position: absolute;	/*take logo out of the flow of the header. Absolute to the .site-header-div*/
 		top: 0;		/*remove top padding*/
-		left: 50%;	/* push logo to the right */
-		transform: translateX(-50%) scale(.8);	/* pull back logo by 50% of the logo width */
-		transform-origin: 50% 0%;	/* default origin: 50% 50%. > set vertical origin to top edge of the image */
-		background-color: $mainBlue;
-		padding: 25px 36px;
 
+		/*horizontal positioning*/
+		/*centered on mobile*/
+		left: 50%;	/* push logo to the right */
+		transform: translateX(-50%) scale(.8);	/* pull back logo by 50% of its width */
+		transform-origin: 50% 0%;	/* default origin: 50% 50%. > set vertical origin to top edge of the image */
+
+		/*left aligned on larger screens*/
 		@mixin atMedium {
-			left: auto;
-			transform: translateX(0);
+			/*reset mobile styles above*/
+			left: auto;					/*reset left*/
+			transform: translateX(0);	/*reset transform*/
+
+			padding: 25px 36px;
 		}
 	}
 
@@ -46,21 +55,23 @@ Site Header BEM Block
 		width: 20px;
 		height: 20px;
 		background-color: #FFF;
-		position: absolute;
+
+		/*positioning the mobile menu icon*/
+		position: absolute;	/*absolute to its ancestor*/
 		top: 10px;
 		right: 10px;
 
 		@mixin atMedium {
-			display: none;
+			display: none;	/*hide the mobile menu icon on larger screens*/
 		}
 	}
 
 	/* .site-header__menu-content */
 	&__menu-content {
-		display: none;
+		display: none;		/*hide the menu on mobile...*/
 
 		@mixin atMedium {
-			display: block;
+			display: block;	/*...but display the menu @ > medium screens*/
 		}
 	}
 }
