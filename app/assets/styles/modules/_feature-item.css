@@ -3,10 +3,8 @@ BEM Block
 Feature Item
 */
 .feature-item {
-	position: relative;
-
-	/* white space below the item */
-	padding-bottom: 2.5rem;
+	position: relative;		/*relative to its normal position*/
+	padding-bottom: 2.5rem;	/* white space below the item */
 
 	@mixin atSmall {
 		padding-left: 94px;
