@@ -1,20 +1,28 @@
+/*
+Site Header BEM Block
+*/
 .site-header {
+	/*position: absolute to the ancestor tag
+	-> takes the header out of the normal page flow.
+	-> Content slides up to the top*/
 	position: absolute;
-	padding: 10px 0;
-	width: 100%;
-	z-index:2;
+	padding: 10px 0;	/*vertical padding of the header*/
+	width: 100%;		/*full width*/
+	z-index:2;			/*set on top of the large-hero container*/
 
 	@mixin atMedium {
-		background-color: rgba($mainBlue, .3);
+		background-color: rgba($mainBlue, .3);	/*convert $mainBlue into rgb values, using the postcss-hexrgba plugin*/
 	}
 
+	/* .site-header__btn-container */
 	&__btn-container {
-		float: right;
+		float: right;	/*position/float the button container to the right*/
 	}
 
+	/* .site-header__logo */
 	&__logo {
-		position: absolute;
-		top: 0;
+		position: absolute;	/*take logo out of the flow of the header. Absolute to the .site-header-div*/
+		top: 0;		/*remove top padding*/
 		left: 50%;	/* push logo to the right */
 		transform: translateX(-50%) scale(.8);	/* pull back logo by 50% of the logo width */
 		transform-origin: 50% 0%;	/* default origin: 50% 50%. > set vertical origin to top edge of the image */
@@ -27,11 +35,13 @@
 		}
 	}
 
+	/* .site-header__logo__seotext */
 	&__logo__seotext {
 		position: absolute;
 		text-indent: -9999px;
 	}
 
+	/* .site-header__menu-icon */
 	&__menu-icon {
 		width: 20px;
 		height: 20px;
@@ -45,6 +55,7 @@
 		}
 	}
 
+	/* .site-header__menu-content */
 	&__menu-content {
 		display: none;
 

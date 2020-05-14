@@ -1,3 +1,7 @@
-$mainBlue: #1f5572;
+/*
+global replacement variables
+injected by the postcss-simple-vars npm plugin
+*/
+$mainBlue: #2f5572;
 $mainOrange: #d59541;
 

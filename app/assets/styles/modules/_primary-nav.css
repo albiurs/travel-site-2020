@@ -1,27 +1,36 @@
+/*
+Primary Navigation BEM Block
+*/
 .primary-nav {
 
-
+	/* .primary-nav--pull-right */
 	&--pull-right {
-		float: right;
+		float: right; /*float the navigation to the right, next to the button*/
 	}
 
+	/* .primary-nav ul */
+	/* target any unordered list (ul) within .primary-nav div container */
 	ul {
 		margin: 0;
 		padding: 0;
-		@mixin clearfix;
+		@mixin clearfix;	/*clearfix of the parent ul, due to "floating: left" of the children li's*/
 	}
 
+	/* .primary-nav li */
+	/* target any list item (li) within .primary-nav div container */
 	li {
-		list-style: none;
-		float: left;
+		list-style: none;		/*remove bullets*/
+		float: left;			/*list items sit on one line instead of on top of each other (default)*/
 		padding-right: 20px;
 	}
 
+	/* .primary-nav a */
+	/* target any link (a) within .primary-nav div container */
 	a {
 		color: #FFF;
 		font-weight: 300;
-		text-decoration: none;
-		display: block;
-		padding: 12px 0;
+		text-decoration: none;	/*remove underline*/
+		display: block;			/**/
+		padding: 12px 0;		/*top padding to center the navigation text within the header*/
 	}
 }
