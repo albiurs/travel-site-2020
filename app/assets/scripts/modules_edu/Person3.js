@@ -11,4 +11,4 @@ function Person3(fullName, favColor) {
 /*
 * What this file will export, if another file tries to import this file.
 * */
-export default Person3;
+export default Person3

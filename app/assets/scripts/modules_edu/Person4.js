@@ -17,4 +17,4 @@ class Person4 {
 /*
 * What this file will export, if another file tries to import this file.
 * */
-export default Person4;
+export default Person4
