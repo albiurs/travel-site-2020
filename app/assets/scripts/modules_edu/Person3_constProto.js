@@ -1,7 +1,7 @@
 /*
 * constructor prototype
 * */
-function Person3(fullName, favColor) {
+function Person3_constProto(fullName, favColor) {
     this.name = fullName;
     this.favoriteColor = favColor;
     /* define and initialize the method greet */
@@ -13,4 +13,4 @@ function Person3(fullName, favColor) {
 /*
 * What this file will export, if another file tries to import this file.
 * */
-export default Person3
+export default Person3_constProto

@@ -3,7 +3,7 @@
 * Note: Technically, bihind the scenes, JavaScript does not use classes and classical inheritance.
 * JavaScript is still running based on prototypes.
 * */
-class Person4 {
+class Person4_classSyntax {
     constructor(name, favoriteColor) {
         this.name = name;
         this.favoriteColor = favoriteColor;
@@ -17,4 +17,4 @@ class Person4 {
 /*
 * What this file will export, if another file tries to import this file.
 * */
-export default Person4
+export default Person4_classSyntax

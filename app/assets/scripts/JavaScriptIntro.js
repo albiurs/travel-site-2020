@@ -84,50 +84,50 @@ jane2.greet();
 
 
 /*
-* Person3()
-* Import object form File.js
+* Person3_constProto
+* Import object form File.js containing the constructor prototype
 * */
-import Person3 from './modules_edu/Person3';     // import Person3 from Person.js file
+import Person3_constProto from './modules_edu/Person3_constProto';     // import Person3 from Person.js file
 
-var john3 = new Person3("John Doe", "black");     // create new instance of the Person object type
+var john3 = new Person3_constProto("John Doe", "black");     // create new instance of the Person object type
 console.log("call john3.greet():");
 john3.greet();
 
 console.log("call jane3.greet():");
-var jane3 = new Person3("Jane Smith", "green");  // create new instance of the Person object type
+var jane3 = new Person3_constProto("Jane Smith", "green");  // create new instance of the Person object type
 jane3.greet();
 
 
 
 /*
-* Person4()
+* Person4_classSyntax()
 * Class Syntax
 * */
-import Person4 from './modules_edu/Person4';     // import Person4 from Person.js file
+import Person4_classSyntax from './modules_edu/Person4_class-syntax';     // import Person4 from Person.js file
 
-let john4 = new Person4("John Doe", "purple");     // create new instance of the Person object type
+let john4 = new Person4_classSyntax("John Doe", "purple");     // create new instance of the Person object type
 console.log("call john4.greet():");
 john4.greet();
 
 console.log("call jane4.greet():");
-let jane4 = new Person4("Jane Smith", "green");  // create new instance of the Person object type
+let jane4 = new Person4_classSyntax("Jane Smith", "green");  // create new instance of the Person object type
 jane4.greet();
 
 
 
 /*
-* Person5()
+* Person5_classSyntaxInherit()
 * Class Syntax - Inheritance
 * */
-import Person5 from './modules_edu/Person5';     // import Person5 from Person.js file
+import Person5_classSyntaxInherit from './modules_edu/Person5_class-syntax-inherit';     // import Person5 from Person.js file
 
-class Adult extends Person5 {
+class Adult extends Person5_classSyntaxInherit {
     payTaxes() {
         console.log(this.name + " just paid the taxes.");
     }
 }
 
-let john5 = new Person5("John Doe", "purple");     // create new instance of the Person object type
+let john5 = new Person5_classSyntaxInherit("John Doe", "purple");     // create new instance of the Person object type
 console.log("call john5.greet():");
 john5.greet();
 
