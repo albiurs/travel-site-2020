@@ -1,4 +1,6 @@
-/* constructor */
+/*
+* constructor prototype
+* */
 function Person3(fullName, favColor) {
     this.name = fullName;
     this.favoriteColor = favColor;
