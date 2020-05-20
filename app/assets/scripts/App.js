@@ -1,5 +1,8 @@
 import '../styles/styles.css'
 import './JavaScriptIntro'
+import MobileMenu from './modules/MobileMenu' // import MobileMenu.js into the variable MobileMenu
+
+let mobileMenu = new MobileMenu();  // define variable mobileMenu and initialize with an instance of MobileMenu
 
 /*
 webpack-dev-server config - hot module replacement

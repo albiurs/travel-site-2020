@@ -75,6 +75,11 @@ Site Header BEM Block
         @mixin atMedium {
             display: block;	/*...but display the menu on larger screens*/
         }
+
+        /* .site-header__menu-content--is-visible */
+        &--is-visible {
+            display: block;     /*display menu content, if toggled by a click (MobileMenu.js)*/
+        }
     }
 }
 
