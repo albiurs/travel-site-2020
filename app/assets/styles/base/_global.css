@@ -1,19 +1,25 @@
+/*
+Global Site Styles
+HTML tags directly targeted.
+*/
 body {
 	font-family: 'Roboto', sans-serif;
 	color: #333;
 }
 
+a {
+	color: $mainOrange;
+}
+
 img {
-	max-width: 100%;
-	height: auto;
+	max-width: 100%;	/*full width of container*/
+	height: auto;		/*adapt height to preserve aspect ratio*/
 }
 
 /* apply to each element (*) on the page:
-gutter padding won't apply the column with to avoid breaking of boxes if the total column width is > 100% */
+The box-sizing property allows us to include the padding and border in an element's total width and height.
+If you set box-sizing: border-box; on an element, padding and border are included in the width and height.
+-> Gutter padding won't affect the column with to avoid breaking of the row, if the total column width is > 100%. */
 * {
 	box-sizing: border-box;
-}
-
-a {
-	color: $mainOrange;
 }

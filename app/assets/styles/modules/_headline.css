@@ -1,21 +1,18 @@
 /*
-BEM-Block
-Headlines
+Headline BEM-Block
 */
-
-/* .headline */
 .headline {
 	font-size: 1.9rem;
 	font-weight: 300;
 	color: $mainBlue;
 
 	@mixin atSmall {
-		font-size: 2.875rem;	/* 46px(text height) / 16px(default text height) = 2.875rem */
+		font-size: 2.875rem;	/* 46px(text height) / 16px(default html text height) = 2.875rem */
 	}
 
 	/* .headline--centered */
 	&--centered	{
-		text-align: center;
+		text-align: center;		/*center text within the container*/
 	}
 
 	/* .headline--orange */
@@ -27,15 +24,13 @@ Headlines
 	&--small {
 		font-size: 1.2rem;
 		@mixin atSmall {
-			font-size: 1.875rem;	/* 30px / 16px = 1.875rem */
+			font-size: 1.875rem;	/* 30px/16px=1.875rem */
 		}
 
 	}
 
-	/*
-	.headline--narrow
-	 Headlines with limited with width of 500px.
-	 */
+	/* .headline--narrow
+	 Headlines with limited with width of 500px. */
 	&--narrow	{
 		/* limit width of text to: 500px / 16px = 31.25rem */
 		/* max-width turns text into a block element -> left aligned */
@@ -46,30 +41,30 @@ Headlines
 		margin-right: auto;
 	}
 
-	/* .headline--light */
-	/* headlines with lighter font weight then standard font weight */
+	/* .headline--light
+	headlines with lighter font weight then standard font weight */
 	&--light {
 		font-weight: 100;
 	}
 
-	/* .headline--b--margin-small */
-	/* individual small headline bottom margin */
+	/* .headline--b--margin-small
+	individual small headline bottom margin */
 	&--b-margin-small {
 		/* margin on text elements [em]:
 		relative to the font size, to dynamically scale it with the font size in re-usable elements. */
 		margin-bottom: .5em;
 	}
 
-	/* .headline--b-margin-large */
-	/* individual large headline bottom margin */
+	/* .headline--b-margin-large
+	individual large headline bottom margin */
 	&--b-margin-large {
 		/* margin on text elements [em]:
 		relative to the font size, to dynamically scale it with the font size in re-usable elements. */
 		margin-bottom: 1.6em;
 	}
 
-	/* .headline--no-t-margin */
-	/* remove top margin from headline */
+	/* .headline--no-t-margin
+	remove top margin from headline */
 	&--no-t-margin {
 		margin-top: 0;
 	}

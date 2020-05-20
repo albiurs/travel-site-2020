@@ -20,7 +20,7 @@ Primary Navigation BEM Block
 	/* target any list item (li) within .primary-nav div container */
 	li {
 		list-style: none;		/*remove bullets*/
-		float: left;			/*list items sit on one line instead of on top of each other (default)*/
+		float: left;			/*list items sit on one line instead of being placed on top of each other (default)*/
 		padding-right: 20px;
 	}
 
@@ -30,7 +30,7 @@ Primary Navigation BEM Block
 		color: #FFF;
 		font-weight: 300;
 		text-decoration: none;	/*remove underline*/
-		display: block;			/**/
-		padding: 12px 0;		/*top padding to center the navigation text within the header*/
+		display: block;			/*block element to enlarge vertical link area within the li container*/
+		padding: 12px 0;		/*top and bottom padding to center the navigation text within the header*/
 	}
 }

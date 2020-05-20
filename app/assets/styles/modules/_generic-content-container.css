@@ -1,6 +1,7 @@
 /*
 Generic HTML content container
 Contains standard/generic content styles, wrapped within a div-container.
+Styles are directly targeting HTML tags.
 */
 .generic-content-container {
 	p {

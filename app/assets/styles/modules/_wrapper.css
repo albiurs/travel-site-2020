@@ -1,7 +1,6 @@
 /*
-BEM-Block
-Wrapper-Div
-Standardized element div-wrapper
+Wrapper BEM-Block
+Standardized div-wrapper
  */
 .wrapper {
 
@@ -10,7 +9,7 @@ Standardized element div-wrapper
 	padding-right: 18px;	/* white space from the left and write edge of the screen */
 	max-width: 1236px; 		/* =1200px + 2*18px of padding, which won't apply (_global.css > box-sizing: border-box)*/
 
-	/* center content horizontally on the screen */
+	/* center wrapper horizontally on the screen */
 	margin-left: auto;
 	margin-right: auto;
 

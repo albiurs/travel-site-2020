@@ -5,73 +5,76 @@ Site Header BEM Block
 	/*position: absolute to the ancestor tag
 	-> takes the header out of the normal page flow.
 	-> Content slides up to the top*/
-	position: absolute;
-	padding: 10px 0;	/*vertical padding of the header*/
-	width: 100%;		/*full width*/
-	z-index:2;			/*set on top of the large-hero container*/
+    position: absolute;
+    padding: 10px 0		/*vertical padding of the header*/;
+    width: 100%;		/*full width header*/
+    z-index: 2;			/*set on top of the large-hero container*/
 
-	@mixin atMedium {
-		background-color: rgba($mainBlue, .3);	/*convert $mainBlue into rgb values, using the postcss-hexrgba plugin*/
-	}
+    @mixin atMedium {
+        background-color: rgba($mainBlue, .3);	/*convert $mainBlue into rgb values, using the postcss-hexrgba plugin*/
+    }
 
 	/* .site-header__btn-container */
-	&__btn-container {
-		float: right;	/*position/float the button container to the right*/
-	}
+    &__btn-container {
+        float: right;	/*position/float the button container to the right*/
+    }
 
 	/* .site-header__logo */
-	&__logo {
-		background-color: $mainBlue;
-		padding: 13px 29px;
+    &__logo {
+        background-color: $mainBlue;
+        padding: 13px 29px;
 
-		/*vertical positioning*/
-		position: absolute;	/*take logo out of the flow of the header. Absolute to the .site-header-div*/
-		top: 0;		/*remove top padding*/
+        /*vertical positioning*/
+        position: absolute;
+        top: 0;
 
-		/*horizontal positioning*/
-		/*centered on mobile*/
-		left: 50%;	/* push logo to the right */
-		transform: translateX(-50%) scale(.8);	/* pull back logo by 50% of its width */
-		transform-origin: 50% 0%;	/* default origin: 50% 50%. > set vertical origin to top edge of the image */
+		/*horizontally centered*/
+        left: 50%;						        /*push logo to the right (50% of the parent container div)...*/
+        transform: translateX(-50%) scale(.8);	/* ...and pull it back by 50% of its own element width; scale to 80%*/
+        /*transform-origin:
+        Due to transform scale(): set vertical origin to top edge of the image (=0) to avoid white space above the logo,
+        which appears due to the centered scaling.
+        Default origin: 50% 50% = centered*/
+        transform-origin: 50% 0;
 
 		/*left aligned on larger screens*/
-		@mixin atMedium {
+        @mixin atMedium {
 			/*reset mobile styles above*/
-			left: auto;					/*reset left*/
-			transform: translateX(0);	/*reset transform*/
+            left: auto;					/*reset left*/
+            transform: translateX(0);	/*reset transform*/
+            padding: 25px 36px;
+        }
+    }
 
-			padding: 25px 36px;
-		}
-	}
-
-	/* .site-header__logo__seotext */
-	&__logo__seotext {
-		position: absolute;
-		text-indent: -9999px;
-	}
+	/* .site-header__logo-seotext */
+    /*&__logo-seotext {
+		position: absolute;		!*position absolute to its parent tag (.site-header__logo)*!
+		text-indent: -9999px;	!*pull seo text out of the visible area*!
+	}*/
 
 	/* .site-header__menu-icon */
 	&__menu-icon {
-		width: 20px;
-		height: 20px;
-		background-color: #FFF;
+        width: 20px;
+        height: 20px;
+        background-color: #FFF;
 
 		/*positioning the mobile menu icon*/
-		position: absolute;	/*absolute to its ancestor*/
-		top: 10px;
-		right: 10px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
 
-		@mixin atMedium {
-			display: none;	/*hide the mobile menu icon on larger screens*/
-		}
-	}
+        @mixin atMedium {
+            display: none;	/*hide the mobile menu icon on larger screens*/
+        }
+    }
 
 	/* .site-header__menu-content */
-	&__menu-content {
-		display: none;		/*hide the menu on mobile...*/
+    &__menu-content {
+        display: none;		/*hide the text menu content on mobile...*/
 
-		@mixin atMedium {
-			display: block;	/*...but display the menu @ > medium screens*/
-		}
-	}
+        @mixin atMedium {
+            display: block;	/*...but display the menu on larger screens*/
+        }
+    }
 }
+

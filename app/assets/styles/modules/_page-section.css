@@ -6,7 +6,6 @@ Standardized styles globally applied to all sections of the page.
 	/* top & bottom padding for tiny screens and above (=all) */
 	padding: 1.2rem 0;
 
-	/* media query */
 	@mixin atMedium {
 		padding: 4.5rem 0;
 	}
@@ -37,12 +36,12 @@ Standardized styles globally applied to all sections of the page.
 
 	/* .page-section--testimonials */
 	&--testimonials {
-		background-color: #e0e6ef;
+		background-color: $lightGrey;
 
 		@mixin atLarge {
 			/*add background image to large screens*/
 			background: url('assets/images/testimonials-bg.jpg') top center no-repeat;
-			background-size: cover;	/*shrink or stretch the image to cover the containing div*/
+			background-size: cover;	/*shrink or stretch the image to fully cover the containing div*/
 		}
 	}
 }

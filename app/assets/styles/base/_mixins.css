@@ -1,3 +1,7 @@
+/*
+Mixins
+*/
+
 /* tiny media */
 /* mobile first standard css for all media without media query */
 /* without mixin definition up to  max-width: 529px */
@@ -24,10 +28,12 @@
 }
 
 /*
+clearfix
 .class::after > clear floating elements.
-Clear floating of children div/elements if they use "float: left;" property, and therefore are taken out of the
-normal flow of the page. Hence, the parent div/element is not aware of its children, which disrupts the layout.
-Therefore, add a clear-fix ::after the children div/elements to clear floating before closing the parent div/element.
+Clear floating of children div's/elements if they use "float: left/right;" property.
+Note: Float takes the div's/elements out of the normal flow of the page. Hence, the parent div/element is not aware
+of its children, which disrupts the layout. Therefore, add a clear-fix .class::after the children div/elements
+to clear floating before closing the parent div/element.
 */
 @define-mixin clearfix {
 	&::after {

@@ -18,7 +18,7 @@ Site Footer BEM Block
 
 		@mixin atMedium {
 			/*reset to inline.
-			-> Button gets attached to the right of the text.*/
+			-> Button gets attached to the right of the text, according to the text flow.*/
 			display: inline;
 
 			margin-bottom: 0;

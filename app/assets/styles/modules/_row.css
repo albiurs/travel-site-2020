@@ -1,6 +1,6 @@
 /*
 Row BEM Block
-Row layout built on a 12 column grid.
+Row layout built on a 12-column grid.
 */
 .row {
 
@@ -15,14 +15,14 @@ Row layout built on a 12 column grid.
 		margin-right: -65px;
 	}
 
-	/* .row__gutters-large */
-	&--gutters-large {
-		margin-right: -100px;
-	}
-
 	/* .row__gutters-small */
 	&--gutters-small {
 		margin-right: -45px;
+	}
+
+	/* .row__gutters-large */
+	&--gutters-large {
+		margin-right: -100px;
 	}
 
 	/* .row--gutters > div */
@@ -32,22 +32,16 @@ Row layout built on a 12 column grid.
 		padding-right: 65px;
 	}
 
-	/* .row--gutters-large > div */
-	/* -> features section */
-	&--gutters-large > div {
-		padding-right: 100px;
-	}
-
 	/* .row--gutters-small > div */
 	/* -> testimonial section */
 	&--gutters-small > div {
 		padding-right: 45px;
 	}
 
-	/* .row__b-margin-until-medium */
-	/* add bottom margin for mobile devices (single column) until medium */
-	&__b-margin-until-medium {
-		margin-bottom: 1rem;
+	/* .row--gutters-large > div */
+	/* -> features section */
+	&--gutters-large > div {
+		padding-right: 100px;
 	}
 
 	/* .row--t-padding */
@@ -56,10 +50,16 @@ Row layout built on a 12 column grid.
 		padding-top: 80px;	/*half of the testimonial image height*/
 	}
 
+	/* .row--b-margin-until-medium */
+	/* add bottom margin for mobile devices (single column) until medium */
+	&--b-margin-until-medium {
+		margin-bottom: 1rem;
+	}
+
 	@mixin atMedium {
 
 		/* reset bottom margin for devices larger then mobile (multi column view) above medium */
-		&__b-margin-until-medium {
+		&--b-margin-until-medium {
 			margin-bottom: 0;
 		}
 
@@ -94,6 +94,9 @@ Row layout built on a 12 column grid.
 			width: 66.66%;
 		}
 
+		/*
+		.row__medium-8--smaller
+		*/
 		&__medium-8--smaller {
 			width: 63%;	/*override the column width to match the layout of the right text in our-beginning section*/
 		}
@@ -102,7 +105,7 @@ Row layout built on a 12 column grid.
 	@mixin atLarge {
 
 		/* reset bottom margin for devices larger then "atLarge" */
-		&__b-margin-until-large {
+		&--b-margin-until-large {
 			margin-bottom: 0;
 		}
 
@@ -159,13 +162,14 @@ Row layout built on a 12 column grid.
 
 	&--equal-height-at-large {
 		@mixin atLarge {
-			display: flex;
+			display: flex;	/*parent row div shall using flex-box*/
 		}
 
-		/* direct descendents that are div's */
+		/* .row--equal-height-at-large > div */
+		/* direct descendents that are div's > targets all columns */
 		& > div {
-			float: none;
-			display: flex;
+			float: none;	/*stop being floated to the left,...*/
+			display: flex;	/*...but using flex-box instead (same as the ancestor)*/
 		}
 	}
 }

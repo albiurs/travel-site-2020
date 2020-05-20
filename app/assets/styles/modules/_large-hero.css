@@ -1,6 +1,5 @@
 /*
-BEM Block
-Top Large Hero Section
+Large Hero Section BEM Block
  */
 .large-hero {
 	border-bottom: 10px solid $mainBlue;
@@ -8,8 +7,8 @@ Top Large Hero Section
 
 	/* .large-hero__image */
 	&__image {
-		/*default inline - causing a small gap between the image and the border-bottom,
-		as inline causing some space for the bottom part of the text*/
+		/*default inline - causes a small gap between the image and the border-bottom,
+		as inline causes some space for the bottom part of the text*/
 		display: block; /*causing the element to behave as a div*/
 	}
 
@@ -19,15 +18,14 @@ Top Large Hero Section
 		padding-top: 88px;
 
 		/*center vertically*/
-		top: 50%;
-		transform: translateY(-50%);
+		top: 50%;						/*push down 50% of the div's height*/
+		transform: translateY(-50%);	/*pull back 50% of the element's height*/
 
 		/*center text horizontally*/
 		left: 0;
 		width: 100%;
 		text-align: center;
 
-		/* media query */
 		@mixin atMedium{
 			padding-top: 50px;
 		}
@@ -40,7 +38,6 @@ Top Large Hero Section
 		margin: 0;
 		font-size: 2rem;	/*rem: font-size relative to to the page's root <html>-element font size, which is 16px in most cases.*/
 
-		/* media query */
 		@mixin atSmall {
 			font-size: 4.8rem;
 		}
@@ -53,7 +50,6 @@ Top Large Hero Section
 		font-size: 1.5rem;
 		margin: 0;
 
-		/* media query */
 		@mixin atSmall {
 			font-size: 2.9rem;
 		}
@@ -65,18 +61,17 @@ Top Large Hero Section
 		font-size: 1.1rem;
 		font-weight: 100;
 
-		/* shadow: offset 2px/2px; blur 0; color black/opacity 10% */
+		/*shadow: offset 2px/2px; blur 0; color black/opacity 10%*/
 		text-shadow: 2px 2px 0 rgba(0, 0, 0, .1);
 
-		/* limit width of description text to: 480px; -> convert: 480px/16=30rem) */
-		/* max-width turns text into a block element -> left aligned */
+		/*limit width of description text to: 480px; -> convert: 480px/16=30rem)
+		max-width turns text into a block element -> left aligned*/
 		max-width: 30rem;
 
-		/* center description text horizontally */
+		/*center description text horizontally*/
 		margin-left: auto;
 		margin-right: auto;
 
-		/* media query */
 		@mixin atSmall {
 			font-size: 1.875rem;
 		}

@@ -22,18 +22,14 @@ Section Title BEM Block
 
 	/* .section-title__icon */
 	&__icon {
-		display: block;		/*transform from inline to block > take the element out of the normal flow*/
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: .6rem;
+		display: block;				/*transform from inline to block > take the element out of the normal flow*/
+		margin: 0 auto .6rem auto;	/*position icon: top 0, horizontally centered, bottom .6rem*/
 
 		@mixin atSmall {
-				position: relative;
-				top: 8px;				/*push icon down*/
-				margin-right: .5rem;	/*white space between icon and text on screens larger then tiny*/
-				margin-left: 0;			/*reset*/
-				margin-bottom: 0;		/*reset*/
-				display: inline-block;	/*avoid dropping the following title text to the next line (override display: block)*/
+			position: relative;		/*relative to its normal position*/
+			display: inline-block;	/*avoid dropping the following title text to the next line (override display: block)*/
+			top: 8px;				/*push icon down*/
+			margin: 0 .5rem 0 0;	/*reset mobile margins - add right white space on larger devices*/
 		}
 	}
 }

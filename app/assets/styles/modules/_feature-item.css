@@ -1,6 +1,5 @@
 /*
-BEM Block
-Feature Item
+Feature Item BEM Block
 */
 .feature-item {
 	position: relative;		/*relative to its normal position*/
@@ -17,9 +16,9 @@ Feature Item
 		margin: 0 auto;	/*zero-out top and bottom margin; center horizontally (auto)*/
 
 		@mixin atSmall {
-			/* position icon to the left of the text on screens > small */
+			/* position icon to the left of the text on larger screens */
 			position: absolute;	/*absolute in relation to its ancestor div with position: relative (.feature-item)*/
-			left: 0;
+			left: 0;			/*left align the icon within the parent div*/
 		}
 	}
 
@@ -27,14 +26,14 @@ Feature Item
 	&__title {
 		font-size: 1.6rem;
 		font-weight: 300;
-		margin-top: .7em;			/*relative to it's ancestors font size*/
+		margin-top: .7em;			/*em: relative to it's ancestors font size - scale according to the title text*/
 		margin-bottom: .8rem;
 		text-align: center;			/*center on tiny screens*/
 
 		@mixin atSmall {
-			margin-top: 1em;		/*relative to it's ancestors font size*/
+			margin-top: 1em;		/*em: relative to it's ancestors font size - scale according to the title text*/
 			font-size: 1.875rem;	/*30px/16px=1.875rem*/
-			text-align: left;		/*left-aligned on > then small screens*/
+			text-align: left;		/*left-aligned on larger screens*/
 		}
 	}
 }
