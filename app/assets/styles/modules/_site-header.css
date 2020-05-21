@@ -65,8 +65,7 @@ Site Header BEM Block
 	/* .site-header__menu-icon */
 	&__menu-icon {
         width: 20px;
-        height: 20px;
-        background-color: #FFF;
+        height: 19px; /* 3*3px (bar height) + 2*5px (gap) = 19px */
 
 		/*positioning the mobile menu icon*/
         position: absolute;
@@ -74,8 +73,75 @@ Site Header BEM Block
         right: 10px;
         z-index: 10;            /*icon must be always on top to be visible and it can be clicked*/
 
+        /* .site-header__menu-icon::before */
+        /* pseudo element before */
+        /* The Before pseudo element creates a pseudo-element before the first child of the selected element,
+        simply it creates an element before the content of the selected element.
+        Pseudo elements have a content property which can be used to insert generated content, image or a string. */
+        &::before {
+            content: "";                /*create empty content, otherwise the bar won't appear*/
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: #FFF;
+            transform-origin: 0 0;      /*center of x-rotation on top-left corner; default 50% 50%*/
+            transition: transform .3s ease-out; /*transform animation of the top bar*/
+        }
+
+        &__middle {
+            position: absolute;
+            top: 8px;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: #FFF;
+            transition: all .3s ease-out;   /*fade-out animation of the middle bar*/
+            transform-origin: 0 50%;        /*shrinking animation initiation form the left-center origin*/
+        }
+
+        /* .site-header__menu-icon::after */
+        /* pseudo element after */
+        /* The after pseudo element is quite similar to the before, the only difference is its positioning
+        which is after the last child of the selected element/ after the content of the selected element.*/
+        &::after {
+            content: "";                /*create empty content, otherwise the bar won't appear*/
+            position: absolute;
+            top: 16px;
+            left: 0;
+            width: 20px;
+            height: 3px;
+            background-color: #FFF;
+            transform-origin: 0px 100%;      /*center of X-rotation on bottom-left corner; default 50% 50%*/
+            transition: transform .3s ease-out; /*transform animation of the bottom bar*/
+
+        }
+
         @mixin atMedium {
             display: none;	/*hide the mobile menu icon on larger screens*/
+        }
+
+        /* .site-header__menu-icon--close-x */
+        &--close-x {
+
+            /* .site-header__menu-icon--close-x::before */
+            &::before {
+                /*scale width of the top hamburger bar, but not the height*/
+                transform: rotate(45deg) scaleX(1.25);
+            }
+
+            .site-header__menu-icon__middle {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+
+            /* .site-header__menu-icon--close-x::before */
+            &::after {
+                /*scale width of the top hamburger bar, but not the height
+                translateY: push the bar down for 1px, as it's too high after rotation*/
+                transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+            }
         }
     }
 
