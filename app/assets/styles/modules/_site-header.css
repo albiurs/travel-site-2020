@@ -9,6 +9,13 @@ Site Header BEM Block
     padding: 10px 0		/*vertical padding of the header*/;
     width: 100%;		/*full width header*/
     z-index: 2;			/*set on top of the large-hero container*/
+    transition: background-color .3s ease-out; /*fade header when clicking the button. default mode = linear*/
+
+    /* .site-header--is-expanded*/
+    /* toggled class by MobileMenu.js when clicking the button */
+    &--is-expanded {
+        background-color: rgba($mainBlue, .55);
+    }
 
     @mixin atMedium {
         background-color: rgba($mainBlue, .3);	/*convert $mainBlue into rgb values, using the postcss-hexrgba plugin*/
@@ -16,8 +23,11 @@ Site Header BEM Block
 
 	/* .site-header__btn-container */
     &__btn-container {
-        float: right;	/*position/float the button container to the right*/
+        @mixin atMedium {
+            float: right;	/*position/float the button container to the right*/
+        }
     }
+
 
 	/* .site-header__logo */
     &__logo {
@@ -62,6 +72,7 @@ Site Header BEM Block
         position: absolute;
         top: 10px;
         right: 10px;
+        z-index: 10;            /*icon must be always on top to be visible and it can be clicked*/
 
         @mixin atMedium {
             display: none;	/*hide the mobile menu icon on larger screens*/
@@ -70,15 +81,29 @@ Site Header BEM Block
 
 	/* .site-header__menu-content */
     &__menu-content {
-        display: none;		/*hide the text menu content on mobile...*/
+        /*display: none;		!*hide the text menu content on mobile...*!*/
+        opacity: 0;         /*not visible = initial state*/
+        transform: scale(1.2);          /*increased size for mobile for the zoom-in fade effect*/
+        transition: all .3s ease-out;   /*fade all properties (not only opacity) of the menu content*/
+        position: relative; /*required for z-index change*/
+        z-index: -10;       /*prevent user from clicking on invisible item*/
+        padding-top: 90px; /*push menu content below the logo on mobile*/
+        text-align: center;
 
         @mixin atMedium {
-            display: block;	/*...but display the menu on larger screens*/
+            /*display: block;	!*...but display the menu on larger screens*!*/
+            opacity: 1;     /*reset to fully visible*/
+            z-index: 1;     /*reset value form mobile*/
+            padding-top: 0; /*reset padding for larger screens*/
+            transform: scale(1);    /*reset for larger screens*/
         }
 
         /* .site-header__menu-content--is-visible */
         &--is-visible {
-            display: block;     /*display menu content, if toggled by a click (MobileMenu.js)*/
+            /*display: block;     !*display menu content, if toggled by a click (MobileMenu.js)*!*/
+            opacity: 1;             /*override from above*/
+            z-index: 1;             /*reset z-index form above*/
+            transform: scale(1);    /*reset from above*/
         }
     }
 }

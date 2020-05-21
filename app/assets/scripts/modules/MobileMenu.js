@@ -1,3 +1,5 @@
+'use strict';  /* use strict JavaScript mode */
+
 class MobileMenu {
    constructor() {
       /*alert("MobileMenu constructor() called") // test alert message*/
@@ -10,6 +12,7 @@ class MobileMenu {
       // define and initialize fild with DOM querySelector()
       this.menuIcon = document.querySelector(".site-header__menu-icon");
       this.menuContent = document.querySelector(".site-header__menu-content");
+      this.siteHeader = document.querySelector(".site-header");
       this.events();    // call the events() method
    }
 
@@ -43,6 +46,7 @@ class MobileMenu {
       // add an additional class to the element if it does not already havde it and
       // remove it, if it alread has the class.
       this.menuContent.classList.toggle("site-header__menu-content--is-visible");
+      this.siteHeader.classList.toggle("site-header--is-expanded");
    }
 }
 

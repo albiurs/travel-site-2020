@@ -1,3 +1,5 @@
+'use strict';   /* use strict JavaScript mode */
+
 import '../styles/styles.css'
 import './JavaScriptIntro'
 import MobileMenu from './modules/MobileMenu' // import MobileMenu.js into the variable MobileMenu
