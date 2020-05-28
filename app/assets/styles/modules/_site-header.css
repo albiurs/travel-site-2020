@@ -76,7 +76,7 @@ Site Header BEM Block
         /* .site-header__menu-icon::before */
         /* pseudo element before */
         /* The Before pseudo element creates a pseudo-element before the first child of the selected element,
-        simply it creates an element before the content of the selected element.
+        Simply it creates an element before the content of the selected element.
         Pseudo elements have a content property which can be used to insert generated content, image or a string. */
         &::before {
             content: "";                /*create empty content, otherwise the bar won't appear*/
@@ -90,6 +90,7 @@ Site Header BEM Block
             transition: transform .3s ease-out; /*transform animation of the top bar*/
         }
 
+        /* .site-header__menu-icon__middle */
         &__middle {
             position: absolute;
             top: 8px;
@@ -104,7 +105,7 @@ Site Header BEM Block
         /* .site-header__menu-icon::after */
         /* pseudo element after */
         /* The after pseudo element is quite similar to the before, the only difference is its positioning
-        which is after the last child of the selected element/ after the content of the selected element.*/
+        which is after the last child of the selected element / after the content of the selected parent element.*/
         &::after {
             content: "";                /*create empty content, otherwise the bar won't appear*/
             position: absolute;
@@ -113,7 +114,7 @@ Site Header BEM Block
             width: 20px;
             height: 3px;
             background-color: #FFF;
-            transform-origin: 0px 100%;      /*center of X-rotation on bottom-left corner; default 50% 50%*/
+            transform-origin: 0 100%;      /*center of X-rotation on bottom-left corner; default 50% 50%*/
             transition: transform .3s ease-out; /*transform animation of the bottom bar*/
 
         }
@@ -139,7 +140,7 @@ Site Header BEM Block
             /* .site-header__menu-icon--close-x::before */
             &::after {
                 /*scale width of the top hamburger bar, but not the height
-                translateY: push the bar down for 1px, as it's too high after rotation*/
+                translateY: push the bar down for 1px, as it's slightly too high after rotation*/
                 transform: rotate(-45deg) scaleX(1.25) translateY(1px);
             }
         }
@@ -148,7 +149,7 @@ Site Header BEM Block
 	/* .site-header__menu-content */
     &__menu-content {
         /*display: none;		!*hide the text menu content on mobile...*!*/
-        opacity: 0;         /*not visible = initial state*/
+        opacity: 0;         /*not visible = initial state - for transform/transition > required instead of display: none*/
         transform: scale(1.2);          /*increased size for mobile for the zoom-in fade effect*/
         transition: all .3s ease-out;   /*fade all properties (not only opacity) of the menu content*/
         position: relative; /*required for z-index change*/

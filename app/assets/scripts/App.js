@@ -2,9 +2,11 @@
 
 import '../styles/styles.css'
 import './JavaScriptIntro'
-import MobileMenu from './modules/MobileMenu' // import MobileMenu.js into the variable MobileMenu
+import MobileMenu from './modules/MobileMenu'           // import MobileMenu class
+import RevealOnScroll from './modules/RevealOnScroll'   // import RevealOnScroll class
 
 let mobileMenu = new MobileMenu();  // define variable mobileMenu and initialize with an instance of MobileMenu
+let revealOnScroll  = new RevealOnScroll(); // creat an Object, which is a new instance of the class RevealOnScroll
 
 /*
 webpack-dev-server config - hot module replacement

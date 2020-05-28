@@ -3,7 +3,7 @@
 class MobileMenu {
    constructor() {
       /*alert("MobileMenu constructor() called") // test alert message*/
-      console.log("MobileMenu constructor() called") // test alert message
+      console.log("MobileMenu constructor() called") // debug log message
 
        /*spaghetti code example*/
       /*document.querySelector(".site-header__menu-icon").addEventListener("click", function () {
