@@ -4,11 +4,10 @@ import throttle from 'lodash/throttle'  // only import the throttle package from
 import debounce from 'lodash/debounce'  // only import the debounce package from the loadash library
 
 class RevealOnScroll {
-    constructor() {
-        console.log("RevealOnScroll constructor() called") // debug log message
-        /*querySelector: only selects the first element matching the class*/
-        /*querySelectorAll: Returns all element descendants of node that match selectors*/
-        this.itemsToReveal = document.querySelectorAll(".feature-item");    // collection of all items to be revealed
+    constructor(elements, thresholdPercent) {
+        console.log("RevealOnScroll constructor() called"); // debug log message
+        this.thresholdPercent = thresholdPercent;
+        this.itemsToReveal = elements;    // collection of all items to be revealed
         this.browserHeight = window.innerHeight;
         this.hideInitially();   // call function on page load
         /*define scrollThrottle function: throttle(function, throtte-to-time-in-ms).bind(point-to-the-over-all-object-"this")*/
@@ -53,24 +52,24 @@ class RevealOnScroll {
     * callcualteIfScrolledTo()
     * reveal-on-scroll 75%
     * */
-    calculateIfScrolledTo(el) {
+    calculateIfScrolledTo(element) {
         /* if scrolled page + window-inner-heigt > current elment's top edge...*/
-       if(window.scrollY + this.browserHeight > el.offsetTop) {
+       if(window.scrollY + this.browserHeight > element.offsetTop) {
            console.log("calculateIfScrolledTo(el) called");  // debug log message
            // measure vertical distance of the element form the top of the browsers view port
            /*console.log(el.getBoundingClientRect().y);*/
 
            /*calculate how far the element is scrolled into the browser window in %*/
            /*let scrollPercent = (el.getBoundingClientRect().y / window.innerHeight) * 100; /!*not compatible with Edge*!/*/
-           let scrollPercent = (el.getBoundingClientRect().top / this.browserHeight) * 100;    /*change to .top for Edge*/
+           let scrollPercent = (element.getBoundingClientRect().top / this.browserHeight) * 100;    /*change to .top for Edge*/
 
            /*add class to the element "el", if the element is scrolled to 75% of viewport height*/
-           if (scrollPercent < 75) {
-               el.classList.add("reveal-item--is-visible");
-               el.isRevealed = true;                           // set flag to true after the element is visible
+           if (scrollPercent < this.thresholdPercent) {
+               element.classList.add("reveal-item--is-visible");
+               element.isRevealed = true;                           // set flag to true after the element is visible
 
                /*remove event listener after the last item is revealed*/
-               if(el.isLastItem) {
+               if(element.isLastItem) {
                    window.removeEventListener("scroll", this.scrollThrottle);
                }
            }
