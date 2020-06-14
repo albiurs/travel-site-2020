@@ -61,6 +61,12 @@ Primary Navigation BEM Block
 			font-size: 1rem;
 			padding: 12px 0;		/*top and bottom padding to center the navigation text within the header*/
 			background-color: transparent;
+
+            /* a.is-current-link */
+			/*triggered by StickyHeader.js*/
+			&.is-current-link {
+				color: #fabb69;
+			}
 		}
 	}
 }
