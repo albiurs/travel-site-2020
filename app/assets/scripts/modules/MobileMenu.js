@@ -3,7 +3,7 @@
 class MobileMenu {
    constructor() {
       /*alert("MobileMenu constructor() called") // test alert message*/
-      console.log("MobileMenu constructor() called") // debug log message
+      /*console.log("MobileMenu constructor() called") // debug log message*/
 
        /*spaghetti code example*/
       /*document.querySelector(".site-header__menu-icon").addEventListener("click", function () {
@@ -21,7 +21,7 @@ class MobileMenu {
    * create new method, to list any and all events to watch for
    * */
    events() {
-      console.log("events() called");     // debug log message
+      /*console.log("events() called");     // debug log message*/
       /*click on menu icon
       * The toggleTheMenu() function wont be directly called within the addEventListener(), as it would modify the
       * value of the "this" keyword, which is pointing to the current object, the blue-print is creating.
@@ -40,7 +40,7 @@ class MobileMenu {
    * toggleTheMenu()
    * */
    toggleTheMenu() {
-      console.log("toggleTheMenu() called");    // debug log message
+      /*console.log("toggleTheMenu() called");    // debug log message*/
 
       // classList.toggle()
       // add an additional class to the element if it does not already havde it and

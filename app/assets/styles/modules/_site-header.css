@@ -18,7 +18,12 @@ Site Header BEM Block
     }
 
     @mixin atMedium {
+        position: fixed;
         background-color: rgba($mainBlue, .3);	/*convert $mainBlue into rgb values, using the postcss-hexrgba plugin*/
+
+        &--dark {
+            background-color: rgba(23, 51, 72, .85);
+        }
     }
 
 	/* .site-header__btn-container */
@@ -40,6 +45,7 @@ Site Header BEM Block
 
 		/*horizontally centered*/
         left: 50%;						        /*push logo to the right (50% of the parent container div)...*/
+        transition: transform .3s ease-out;
         transform: translateX(-50%) scale(.8);	/* ...and pull it back by 50% of its own element width; scale to 80%*/
         /*transform-origin:
         Due to transform scale(): set vertical origin to top edge of the image (=0) to avoid white space above the logo,
@@ -53,6 +59,12 @@ Site Header BEM Block
             left: auto;					/*reset left*/
             transform: translateX(0);	/*reset transform*/
             padding: 25px 36px;
+
+           /* .site-header--dark .site-header__logo */
+            /*when .site-header__logo is descendent of .site-header--dark*/
+            .site-header--dark & {
+                transform: scale(.55);
+            }
         }
     }
 

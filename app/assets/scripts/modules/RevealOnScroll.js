@@ -5,7 +5,7 @@ import debounce from 'lodash/debounce'  // only import the debounce package from
 
 class RevealOnScroll {
     constructor(elements, thresholdPercent) {
-        console.log("RevealOnScroll constructor() called"); // debug log message
+        /*console.log("RevealOnScroll constructor() called"); // debug log message*/
         this.thresholdPercent = thresholdPercent;
         this.itemsToReveal = elements;    // collection of all items to be revealed
         this.browserHeight = window.innerHeight;
@@ -21,8 +21,7 @@ class RevealOnScroll {
     * create a method, to list events to watch for
     * */
     events() {
-        console.log("events() called"); // debug log message
-
+        /*console.log("events() called"); // debug log message*/
         /*trigger reveal-on-scroll */
         /*using lodash/throttle*/
         window.addEventListener("scroll", this.scrollThrottle); // call function
@@ -30,7 +29,7 @@ class RevealOnScroll {
         /*debounced browser height re-calculation, only every 300ms*/
         /*using loadash/debounce*/
         window.addEventListener("resize", debounce(() => {
-            console.log("debounce() called");
+            /*console.log("debounce() called");*/
             this.browserHeight = window.innerHeight;
         }, 300));   // wait 300ms
     }
@@ -40,7 +39,7 @@ class RevealOnScroll {
     * call this.calculateIfScrolledTo() for each element
     * */
     calcCaller() {
-        console.log("calcCaller() called");
+        /*console.log("calcCaller() called");*/
         this.itemsToReveal.forEach(el => {
             if(el.isRevealed == false) {
                 this.calculateIfScrolledTo(el);
@@ -55,7 +54,7 @@ class RevealOnScroll {
     calculateIfScrolledTo(element) {
         /* if scrolled page + window-inner-heigt > current elment's top edge...*/
        if(window.scrollY + this.browserHeight > element.offsetTop) {
-           console.log("calculateIfScrolledTo(el) called");  // debug log message
+           /*console.log("calculateIfScrolledTo(el) called");  // debug log message*/
            // measure vertical distance of the element form the top of the browsers view port
            /*console.log(el.getBoundingClientRect().y);*/
 
@@ -81,7 +80,7 @@ class RevealOnScroll {
     * Hide the elements by default css rules within .reveal-item
     * */
     hideInitially() {
-        console.log("hideInitially() called");     // debug log message
+        /*console.log("hideInitially() called");     // debug log message*/
         /*target the whole set of elements within .feature-item*/
 
         /*traditional anonymous function*/
