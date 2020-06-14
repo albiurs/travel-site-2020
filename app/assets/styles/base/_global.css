@@ -2,6 +2,11 @@
 Global Site Styles
 HTML tags directly targeted.
 */
+html {
+	/*add smooth scrolling behaviour*/	
+	scroll-behavior: smooth;
+}
+
 body {
 	font-family: 'Roboto', sans-serif;
 	color: #333;
