@@ -20,6 +20,12 @@ Section Title BEM Block
 		color: $mainBlue;
 	}
 
+	/* .section-title--less-margin */
+	&--less-margin {
+		margin-bottom: 1.3rem;
+		margin-top: 0;
+	}
+
 	/* .section-title__icon */
 	&__icon {
 		display: block;				/*transform from inline to block > take the element out of the normal flow*/
