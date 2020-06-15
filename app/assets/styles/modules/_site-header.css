@@ -21,6 +21,7 @@ Site Header BEM Block
         position: fixed;
         background-color: rgba($mainBlue, .3);	/*convert $mainBlue into rgb values, using the postcss-hexrgba plugin*/
 
+        /*dynamically triggered by StickyHeader.js: change bg-col dependent on scroll pos*/
         &--dark {
             background-color: rgba(23, 51, 72, .85);
         }

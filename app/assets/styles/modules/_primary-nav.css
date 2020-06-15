@@ -65,7 +65,7 @@ Primary Navigation BEM Block
             /* a.is-current-link */
 			/*triggered by StickyHeader.js*/
 			&.is-current-link {
-				color: #fabb69;
+				color: #fabb69;	/*change link color accroding to the scroll position*/
 			}
 		}
 	}

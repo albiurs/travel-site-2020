@@ -26,7 +26,7 @@ class RevealOnScroll {
         /*using lodash/throttle*/
         window.addEventListener("scroll", this.scrollThrottle); // call function
 
-        /*debounced browser height re-calculation, only every 300ms*/
+        /*debounced browser height re-calculation and variable update and variable update, only every 300ms*/
         /*using loadash/debounce*/
         window.addEventListener("resize", debounce(() => {
             /*console.log("debounce() called");*/
