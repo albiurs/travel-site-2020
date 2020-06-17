@@ -7,23 +7,45 @@ import './JavaScriptIntro'
 import MobileMenu from './modules/MobileMenu'           // import MobileMenu class
 import RevealOnScroll from './modules/RevealOnScroll'   // import RevealOnScroll class
 import StickyHeader from './modules/StickyHeader'       // import StickyHeader class
-import Modal from './modules/Modal'                     // import Modal class
 
 
 // == variables ==
-// define variables and initialize by importing a class
-let mobileMenu = new MobileMenu();
-let sytickyHeader = new StickyHeader();
+// define variables
+// let varName;
+// let varName = new importClassName();
+// let mobileMenu = new MobileMenu();
+// let sytickyHeader = new StickyHeader();
+let modal;
 
 
-// == objects ==
-new Modal();
-
+// == object instance calls ==
+new MobileMenu();
+new StickyHeader();
 /*Reveal-on-scroll by querySelector & thresholdPercentage*/
 /*querySelector: only selects the first element matching the class*/
 /*querySelectorAll: Returns all element descendants of node that match selectors*/
 new RevealOnScroll(document.querySelectorAll(".feature-item"), 75); // creat an Object, which is a new instance of the class RevealOnScroll
 new RevealOnScroll(document.querySelectorAll(".testimonial"), 60); // creat an Object, which is a new instance of the class RevealOnScroll
+
+/**
+ * lazy-load JavaScript object instance show-case
+ */
+document.querySelectorAll(".open-modal").forEach(el => {
+    el.addEventListener("click", e => {
+        e.preventDefault(); // prevent the default behviour of clicking on a #-link <a href="#">xyz</a>, which scrolles up the page
+        if(typeof modal == "undefined") {   // only if the variable has not been initialized yet...
+            //import(/* webpackChunkName: "alias" -> alias.bundled.js */ './path/Class').then(execute-after-loading-class).catch(throw-exception)
+            // import('./modules/Modal').then(importedFile => {
+            import(/* webpackChunkName: "modal" */ './modules/Modal').then(importedFile => {
+
+                modal = new importedFile.default();             // initialize global variable with new instance of the imported Modal class
+                setTimeout(() => modal.openTheModal(), 20);     // call the modal.openTheModal() function after a delay of 20ms
+            }).catch(() => console.log("There was a problem.")); // throw exception if exectution fails
+        } else {
+            modal.openTheModal();                               // call method
+        }
+    });
+});
 
 
 /**

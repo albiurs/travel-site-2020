@@ -20,7 +20,7 @@ class Modal {
 
         this.injectHTML();
         this.modal = document.querySelector(".modal");
-        this.openModalButtons = document.querySelectorAll(".open-modal");
+        // this.openModalButtons = document.querySelectorAll(".open-modal");    // removed due to lazy-load call from App.js
         this.closeIcon = document.querySelector(".modal__close");
         this.events();
     }
@@ -32,7 +32,7 @@ class Modal {
      */
     events() {
         // listen for open click
-        this.openModalButtons.forEach(el => el.addEventListener("click", e => this.openTheModal(e)));
+        // this.openModalButtons.forEach(el => el.addEventListener("click", e => this.openTheModal(e)));    // removed due to lazy-load call from App.js
         
         // listen for close "X" click, calling the function to close the modal / lightbox overlay
         this.closeIcon.addEventListener("click", () => this.closeTheModal());
@@ -47,9 +47,13 @@ class Modal {
      * Triggers the class to make the modal / ligthtbox overlay visible.
      * @param {*} e     Event = Button pressed
      */
-    openTheModal(e) {
-        console.log('openTheModal called');
-        e.preventDefault(); // prevent the default behviour of clicking on a #-link <a href="#">xyz</a>, which scrolles up the page
+    // openTheModal(e) {   // removed parameter due to lazy-load call from App.js 
+        openTheModal() {
+        // console.log('openTheModal called');
+
+        // removed due to lazy-load call from App.js:
+        // e.preventDefault(); // prevent the default behviour of clicking on a #-link <a href="#">xyz</a>, which scrolles up the page
+
         this.modal.classList.add("modal--is-visible"); // trigger the class to make the modal / ligthtbox overlay visible
     }
 
