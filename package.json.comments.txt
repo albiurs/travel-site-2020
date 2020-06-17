@@ -10,7 +10,7 @@
   },
      "dependencies": {
        "axios": "^0.19.0",
-       "lazysizes": "^5.1.2",
+       "lazysizes": "^5.1.2",               // lazy-loading images
        "lodash": "^4.17.15",                // Lodash makes JavaScript easier by taking the hassle out of working with arrays, numbers, objects, strings, etc.. Used for throttle events - e.g. reveal-on-scroll
        "normalize.css": "^8.0.1",           // normalize.css - alternative to css resets to render styles more consistently in web-browsers.
        "react": "^16.11.0",

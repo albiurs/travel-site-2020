@@ -3,6 +3,9 @@
 
 // == imports ==
 import '../styles/styles.css'
+// import the npm lazysyzes module for lazy-loading images functionality:
+// images with the class ".lazyload" and source sets with the attribute "data-srcset" (instead of "srcset") will be loadad on scroll only
+import 'lazysizes'                                      
 import './JavaScriptIntro'
 import MobileMenu from './modules/MobileMenu'           // import MobileMenu class
 import RevealOnScroll from './modules/RevealOnScroll'   // import RevealOnScroll class
