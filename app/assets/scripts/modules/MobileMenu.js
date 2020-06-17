@@ -1,6 +1,17 @@
 'use strict';  /* use strict JavaScript mode */
 
+
+/**
+ * class MobileMenu {}
+ * Controlls the mobile menu icon and menu content.
+ * 
+ * Methods:
+ * constructor()
+ * events()
+ * toggleTheMenu()
+ */
 class MobileMenu {
+
    constructor() {
       /*alert("MobileMenu constructor() called") // test alert message*/
       /*console.log("MobileMenu constructor() called") // debug log message*/
@@ -15,6 +26,7 @@ class MobileMenu {
       this.siteHeader = document.querySelector(".site-header");
       this.events();    // call the events() method
    }
+
 
    /*
    * events()
@@ -35,6 +47,7 @@ class MobileMenu {
       * the arrow function is the equivalent in JavaScript of Lambda in other programming languages */
       this.menuIcon.addEventListener("click", () => this.toggleTheMenu());
    }
+
 
    /*
    * toggleTheMenu()

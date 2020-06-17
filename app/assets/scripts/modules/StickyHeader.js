@@ -3,6 +3,18 @@
 import throttle from 'lodash/throttle'
 import debounce from 'lodash/debounce'
 
+
+/**
+ * class StickyHeader{}
+ * Controlls the behviour of the sticky header.
+ * 
+ * Methods:
+ * constructor()
+ * evetns()
+ * runOnScroll()
+ * determineScrollDirection()
+ * calcSection()
+ */
 class StickyHeader {
     constructor() {
         this.siteHeader = document.querySelector(".site-header");
@@ -31,8 +43,10 @@ class StickyHeader {
         }, 300));   // wait 300ms
     }
 
+
     /**
      * runOnScroll()
+     * Methods to be triggered while scrolling
      */
     runOnScroll() {
         /*console.log("events() called"); // debug log message*/

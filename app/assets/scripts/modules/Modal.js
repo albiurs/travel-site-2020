@@ -1,5 +1,18 @@
 'use strict';
 
+
+/**
+ * class Modal {}
+ * Controll of the modal / lightbox overlay by mouse and keyboard events.
+ * 
+ * Methods:
+ * constructor()
+ * events()
+ * openTheModal()
+ * closeTheModal()
+ * keyPressHandler()
+ * injectHTML()
+ */
 class Modal {
 
     constructor() {

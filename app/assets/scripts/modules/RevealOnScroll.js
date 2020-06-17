@@ -3,10 +3,23 @@
 import throttle from 'lodash/throttle'  // only import the throttle package from the loadash library
 import debounce from 'lodash/debounce'  // only import the debounce package from the loadash library
 
+
+/**
+ * class RevealOnScroll {}
+ * Reveal page elements on scroll.
+ * 
+ * Methods:
+ * constructor()
+ * events()
+ * calcCaller()
+ * calculateIfScrolledTo()
+ * hideInitially()
+ */
 class RevealOnScroll {
+
     constructor(elements, thresholdPercent) {
         /*console.log("RevealOnScroll constructor() called"); // debug log message*/
-        this.thresholdPercent = thresholdPercent;
+        this.thresholdPercent = thresholdPercent;   // threshold in % to reveal the item
         this.itemsToReveal = elements;    // collection of all items to be revealed
         this.browserHeight = window.innerHeight;
         this.hideInitially();   // call function on page load
@@ -15,6 +28,7 @@ class RevealOnScroll {
         this.scrollThrottle = throttle(this.calcCaller, 200).bind(this);    // call calcCaller() only every 200ms
         this.events();          // call events() on page load
     }
+
 
     /*
     * events()
@@ -34,6 +48,7 @@ class RevealOnScroll {
         }, 300));   // wait 300ms
     }
 
+
     /*
     * calcCaller()
     * call this.calculateIfScrolledTo() for each element
@@ -47,10 +62,12 @@ class RevealOnScroll {
         })
     }
 
-    /*
-    * callcualteIfScrolledTo()
-    * reveal-on-scroll 75%
-    * */
+
+    /**
+     * callcualteIfScrolledTo()
+     * Reveal item depending on it's position within the viewport and on the class's pareter "scrollPercent".
+     * @param {*} element to be calculated for reveal
+     */
     calculateIfScrolledTo(element) {
         /* if scrolled page + window-inner-heigt > current elment's top edge...*/
        if(window.scrollY + this.browserHeight > element.offsetTop) {
@@ -74,6 +91,7 @@ class RevealOnScroll {
            }
        }
     }
+
 
     /*
     * hideInitially()
