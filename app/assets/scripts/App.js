@@ -4,10 +4,14 @@ import '../styles/styles.css'
 import './JavaScriptIntro'
 import MobileMenu from './modules/MobileMenu'           // import MobileMenu class
 import RevealOnScroll from './modules/RevealOnScroll'   // import RevealOnScroll class
-import StickyHeader from './modules/StickyHeader'
+import StickyHeader from './modules/StickyHeader'       // import StickyHeader class
+import Modal from './modules/Modal'                     // import Modal class
 
 // define variables and initialize by importing a class
 let mobileMenu = new MobileMenu();
+let sytickyHeader = new StickyHeader();
+
+new Modal();
 
 /*Reveal-on-scroll by querySelector & thresholdPercentage*/
 /*querySelector: only selects the first element matching the class*/
@@ -15,7 +19,6 @@ let mobileMenu = new MobileMenu();
 new RevealOnScroll(document.querySelectorAll(".feature-item"), 75); // creat an Object, which is a new instance of the class RevealOnScroll
 new RevealOnScroll(document.querySelectorAll(".testimonial"), 60); // creat an Object, which is a new instance of the class RevealOnScroll
 
-let sytickyHeader = new StickyHeader();
 
 /*
 webpack-dev-server config - hot module replacement

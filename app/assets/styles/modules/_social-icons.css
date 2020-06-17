@@ -1,0 +1,29 @@
+/*
+Social Icons BEM Block
+*/
+.social-icons {
+    text-align: center;
+
+    &__icon {
+        position: relative;             /*relative to its parent container*/
+        background-color: $mainOrange;
+        display: inline-block;
+        width: 33%;                     /*width for tiny screens*/
+        height: 72px;
+        margin: 0 5px 5px 5px;
+
+        @mixin atSmall {
+           width: 72px;                 /*width for small+ screens*/ 
+        }
+
+        img {
+            display: block;
+            position: absolute;         /*absolute to its parent container*/
+
+            /*center icons within the orange background area*/
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);   /*pull back image half of its own width and height*/
+        }
+    }
+}

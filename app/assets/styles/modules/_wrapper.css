@@ -39,18 +39,15 @@ Standardized div-wrapper
 		}
 	}
 
-	/* .wrapper .wrapper */
-	/* nesting second level wrapper instead of ".wrapper .wrapper {}", see below */
-	/* remove double padding in nested wrappers (wrapper inside a wrapper) */
-	.wrapper {
-		padding-left: 0;
-		padding-right: 0;
-	}
-
 	/* .wrapper--medium */
 	/* medium width wrapper for "boxed" elements */
 	&--medium {
 		max-width: 976px;
+	}
+
+	/* .wrapper--narrow */
+	&--narrow {
+		max-width: 470px;
 	}
 
 	/* .wrapper--b-margin */
@@ -61,6 +58,14 @@ Standardized div-wrapper
 		@mixin atSmall {
 			margin-bottom: 3.875rem;	/*62px/16px=3.875rem*/
 		}
+	}
+
+	/* .wrapper .wrapper */
+	/* nesting second level wrapper instead of ".wrapper .wrapper {}", see below */
+	/* remove double padding in nested wrappers (wrapper inside a wrapper) */
+	.wrapper {
+		padding-left: 0;
+		padding-right: 0;
 	}
 }
 
