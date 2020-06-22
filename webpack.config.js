@@ -3,6 +3,7 @@ const currentTask = process.env.npm_lifecycle_event;     // = dev or build, depe
 const path = require('path');    // import/require-in the node.js 'path' module/package in ./node_modules/@types/node/path.d.ts, which is part of the node library
 //const { SplitChunksPlugin } = require('webpack');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');   // Plugin to clean dist folder on re-build
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');    // Plugin to extract a css file out of the bunled.js
 
 //post-css plugin array
 const postCSSPlugins = [
@@ -16,32 +17,38 @@ const postCSSPlugins = [
 
 
 // == variables ==
+
+/*
+CSS SUPPORT CONFIG
+"css-loader": "^3.2.0",              // css-import-support for webpack (which only understands js)
+"style-loader": "^1.0.0",            // css-style-support for webpack (which only understands js)
+"postcss-loader": "^3.0.0",          // post-css support for webpack
+ */
+let cssConfig = {
+    test: /\.css$/i,        // only if a file ends in ".css" (regex term)...
+    // ...only then use:
+    // style-loader module
+    // css-loader module
+    //      -> 'css-loader' vs 'css-loader?url=false'
+    //      -> disable url support of post-css to manage image files manually.
+    // post-css-loader module with the plugins (listed in postCSSPlugins const array)
+    use: ['css-loader?url=false', {loader: 'postcss-loader', options: {plugins: postCSSPlugins}}]
+}
+
 let config = {
     entry: './app/assets/scripts/App.js',
     module: {
         rules: [
-            /*
-            CSS SUPPORT CONFIG
-            "css-loader": "^3.2.0",              // css-import-support for webpack (which only understands js)
-            "style-loader": "^1.0.0",            // css-style-support for webpack (which only understands js)
-            "postcss-loader": "^3.0.0",          // post-css support for webpack
-             */
-            {
-                test: /\.css$/i,        // only if a file ends in ".css" (regex term)...
-                // ...only then use:
-                // style-loader module
-                // css-loader module
-                //      -> 'css-loader' vs 'css-loader?url=false'
-                //      -> disable url support of post-css to manage image files manually.
-                // post-css-loader module with the plugins (listed in postCSSPlugins const array)
-                use: ['style-loader', 'css-loader?url=false', {loader: 'postcss-loader', options: {plugins: postCSSPlugins}}]
-            }
+            cssConfig
         ]
     }
 };
 
 
 if (currentTask == 'dev') {
+
+    cssConfig.use.unshift('style-loader');      // unshift/add an additional item to the begining of the array cssConfig.use: [xxx] above
+
     config.output = {                           // property: create js object, which controls the webpack output file
         /*
         create output of bundled.js file to be imported in index.html:
@@ -68,6 +75,11 @@ if (currentTask == 'dev') {
 }
 
 if (currentTask == 'build') {
+
+    cssConfig.use.unshift(MiniCssExtractPlugin.loader);      // unshift/add an additional item to the beginning of the array cssConfig.use: [xxx] above
+
+    postCSSPlugins.push(require('cssnano'));                 // push/add an additional plugin to the end of the postCssPlugins array above
+
     config.output = {                           // property: create js object, which controls the webpack output file
         
         filename: '[name].[chunkhash].js',      // automatically create build file name 'main.*.js' with junk hashes for re-caching by browser on re-build
@@ -83,7 +95,9 @@ if (currentTask == 'build') {
     };
 
     // leverage plugins within the build process
-    config.plugins = [new CleanWebpackPlugin()];
+    // new CleanWebpackPlugin() -> new instance of the plugin to clean the dist folder
+    // new MiniCssExtractPlugin({filename: 'styles.[chunkhash].css'}) -> new instance of the MiniCssExtractPlugin to create the css file
+    config.plugins = [new CleanWebpackPlugin(), new MiniCssExtractPlugin({filename: 'styles.[chunkhash].css'})];
 }
 
 

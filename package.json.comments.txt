@@ -24,10 +24,10 @@
        "babel-loader": "^8.0.6",
        "clean-webpack-plugin": "^3.0.0",    // clean folder / delete old files before re-build
        "css-loader": "^3.2.0",              // css-import support for webpack (which only understands js)
-       "cssnano": "^4.1.10",
+       "cssnano": "^4.1.10",                // minify css file plugin
        "fs-extra": "^8.1.0",
        "html-webpack-plugin": "^3.2.0",
-       "mini-css-extract-plugin": "^0.8.0",
+       "mini-css-extract-plugin": "^0.8.0", // extract a css file out of the bundled.js
        "postcss-hexrgba": "^2.0.0",         // PostCSS convert hexadecimal color codes values into rgba(red, green, blue) values
        "postcss-import": "^12.0.1",         // PostCSS support to import of modular partial css files from a sub-dir into styles.css
        "postcss-loader": "^3.0.0",          // PostCSS support for webpack
