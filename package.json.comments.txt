@@ -17,16 +17,16 @@
        "react-dom": "^16.11.0"
      },
      "devDependencies": {
-       "@babel/core": "^7.7.2",
-       "@babel/preset-env": "^7.7.1",
+       "@babel/core": "^7.7.2",             // Babel compiler core
+       "@babel/preset-env": "^7.7.1",       // A Babel preset for each environment
        "@babel/preset-react": "^7.7.0",
        "autoprefixer": "^9.6.5",            // PostCSS plugin to parse CSS and add vendor prefixes to CSS rules
-       "babel-loader": "^8.0.6",
+       "babel-loader": "^8.0.6",            // This package allows transpiling JavaScript files using Babel and webpack
        "clean-webpack-plugin": "^3.0.0",    // clean folder / delete old files before re-build
        "css-loader": "^3.2.0",              // css-import support for webpack (which only understands js)
        "cssnano": "^4.1.10",                // minify css file plugin
-       "fs-extra": "^8.1.0",
-       "html-webpack-plugin": "^3.2.0",
+       "fs-extra": "^8.1.0",                // adds file system methods that aren't included in the native fs module and adds promise support to the fs methods 
+       "html-webpack-plugin": "^3.2.0",     // webpack plugin to update referenced filenames with hashes
        "mini-css-extract-plugin": "^0.8.0", // extract a css file out of the bundled.js
        "postcss-hexrgba": "^2.0.0",         // PostCSS convert hexadecimal color codes values into rgba(red, green, blue) values
        "postcss-import": "^12.0.1",         // PostCSS support to import of modular partial css files from a sub-dir into styles.css

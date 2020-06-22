@@ -1,9 +1,10 @@
 // == constants ==
 const currentTask = process.env.npm_lifecycle_event;     // = dev or build, depending on the according npm script, currently being executed
 const path = require('path');    // import/require-in the node.js 'path' module/package in ./node_modules/@types/node/path.d.ts, which is part of the node library
-//const { SplitChunksPlugin } = require('webpack');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');   // Plugin to clean dist folder on re-build
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');    // Plugin to extract a css file out of the bunled.js
+const HtmlWebpackPlugin = require('html-webpack-plugin');           // Plugin to inject hashed filenames into the html code
+const fse = require('fs-extra');    // file system extra: adds file system methods that aren't included in the native fs module and adds promise support to the fs methods
 
 //post-css plugin array
 const postCSSPlugins = [
@@ -14,6 +15,19 @@ const postCSSPlugins = [
     require('postcss-hexrgba'),
     require('autoprefixer')
 ];
+
+
+/**
+ * RunAfterCompile {}
+ * Actions to run after compilation
+ */
+class RunAfterCompile {
+    apply(compiler) {
+        compiler.hooks.done.tap('Copy images', function() {
+            fse.copySync('./app/assets/images', './dist/assets/images') // one-way-sync: fse.copySync('source', 'dest')
+        })
+    }
+}
 
 
 // == variables ==
@@ -35,8 +49,22 @@ let cssConfig = {
     use: ['css-loader?url=false', {loader: 'postcss-loader', options: {plugins: postCSSPlugins}}]
 }
 
+// edit several pages in a loop using the fs-extra plugin
+let pages = fse.readdirSync('./app').filter(function(file) {
+    return file.endsWith('.html');  // return array with all files ending to .html
+}).map(function(page) {             // generate new array based on the previous
+    return new HtmlWebpackPlugin({  // array of multiple HtmlWebpackPlugins -> use the plugin once for each template
+        filename: page,
+        template: `./app/${page}`
+    })
+})
+
 let config = {
     entry: './app/assets/scripts/App.js',
+    // leverage plugins: []
+    // HtmlWebpackPlugin({filename: 'index.html', template: './app/index.html'}) -> filename: 'to-be-created', template: 'template-file'
+    //plugins: [new HtmlWebpackPlugin({filename: 'index.html', template: './app/index.html'})],
+    plugins: pages,
     module: {
         rules: [
             cssConfig
@@ -76,6 +104,18 @@ if (currentTask == 'dev') {
 
 if (currentTask == 'build') {
 
+    // apply backward compatibility of new js code to older web browsers
+    config.module.rules.push({  // push/add rules to the end of the config.module.rules[] array
+        test: /\.js$/,  // only .js files
+        exclude: /(node_modules)/,  // exclude node modules
+        use: {
+            loader: 'babel-loader',
+            options: {
+                presets: ['@babel/preset-env']
+            }
+        }
+    })
+
     cssConfig.use.unshift(MiniCssExtractPlugin.loader);      // unshift/add an additional item to the beginning of the array cssConfig.use: [xxx] above
 
     postCSSPlugins.push(require('cssnano'));                 // push/add an additional plugin to the end of the postCssPlugins array above
@@ -94,10 +134,12 @@ if (currentTask == 'build') {
         splitChunks: {chunks: 'all'}
     };
 
-    // leverage plugins within the build process
-    // new CleanWebpackPlugin() -> new instance of the plugin to clean the dist folder
-    // new MiniCssExtractPlugin({filename: 'styles.[chunkhash].css'}) -> new instance of the MiniCssExtractPlugin to create the css file
-    config.plugins = [new CleanWebpackPlugin(), new MiniCssExtractPlugin({filename: 'styles.[chunkhash].css'})];
+    // leverage plugins within the build process -> push/add items to the end of the config.plugins[] array    
+    config.plugins.push(
+        new CleanWebpackPlugin(),   // new CleanWebpackPlugin() -> new instance of the plugin to clean the dist folder
+        new MiniCssExtractPlugin({filename: 'styles.[chunkhash].css'}), // new MiniCssExtractPlugin({filename: 'styles.[chunkhash].css'}) -> new instance of the MiniCssExtractPlugin to create the css file
+        new RunAfterCompile()   //
+    );
 }
 
 
