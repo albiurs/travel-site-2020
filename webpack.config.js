@@ -24,7 +24,7 @@ const postCSSPlugins = [
 class RunAfterCompile {
     apply(compiler) {
         compiler.hooks.done.tap('Copy images', function() {
-            fse.copySync('./app/assets/images', './dist/assets/images') // one-way-sync: fse.copySync('source', 'dest')
+            fse.copySync('./app/assets/images', './docs/assets/images') // one-way-sync: fse.copySync('source', 'dest')
         })
     }
 }
@@ -124,7 +124,7 @@ if (currentTask == 'build') {
         
         filename: '[name].[chunkhash].js',      // automatically create build file name 'main.*.js' with junk hashes for re-caching by browser on re-build
         chunkFilename: '[name].[chunkhash].js', // automatically create build file names 'modal.*.js' and vendors-main.*.js with junk hashes for re-caching by browser on re-build
-        path: path.resolve(__dirname, 'dist')   // property: define abs. path for bundled js files. path.resolve(__dirname=from/current/dir/, 'to/relative/folder')
+        path: path.resolve(__dirname, 'docs')   // property: define abs. path for bundled js files. path.resolve(__dirname=from/current/dir/, 'to/relative/folder')
     };
 
     config.mode = 'production';
