@@ -22,7 +22,7 @@
        "@babel/preset-react": "^7.7.0",
        "autoprefixer": "^9.6.5",            // PostCSS plugin to parse CSS and add vendor prefixes to CSS rules
        "babel-loader": "^8.0.6",
-       "clean-webpack-plugin": "^3.0.0",
+       "clean-webpack-plugin": "^3.0.0",    // clean folder / delete old files before re-build
        "css-loader": "^3.2.0",              // css-import support for webpack (which only understands js)
        "cssnano": "^4.1.10",
        "fs-extra": "^8.1.0",
